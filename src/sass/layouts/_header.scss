@@ -1,1 +1,83 @@
 // header
+.header {
+
+}
+.home {
+    background-image: url(../images/mob-abstract-background-with-red-lines-1x.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header-container {
+}
+.container {
+}
+.header__tabs {
+}
+.header__title-panel {
+}
+.header__logo {
+    display: flex;
+}
+.icon {
+    fill: #ffffff;
+}
+.logo-title {
+    font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.16;
+  color: #ffffff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    color: #ff6b08;
+  }
+  &:focus {
+    color: #ff6b08;
+  }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.header__nav {
+}
+.header__controls {
+}
+.header__controls-item {
+}
+.btn1 {
+}
+.btn2 {
+}
+.header__panes {
+}
+.pane {
+}
+.header__pane-search-form {
+}
+.header__search-form-lab {
+}
+.header__search-form-input {
+}
+.header__input-search-buttons {
+}
+.fa-solid {
+}
+.fa-magnifying-glass {
+}
+.icon-animation-2 {
+}
+.header__library-buttons {
+}
+.header__library-buttons-item {
+}
+.header__library-buttons-button {
+}
+.watched {
+}
+.queue {
+}
