@@ -1,0 +1,12 @@
+.movie-list {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    padding-top: 60px;
+  }
+
+  @include desktop {
+    margin: 0 -8px;
+  }
+}
