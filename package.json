@@ -2,6 +2,7 @@
   "name": "filmoteka-team-project",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/Mariana-Diachun/filmoteka-team-project#readme",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-team-project/"
@@ -25,5 +26,5 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
-  "homepage": "https://github.com/Mariana-Diachun/filmoteka-team-project#readme"
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
