@@ -1,1 +1,2 @@
-// головний файл JS
+import { renderMostPopularMovies } from './components/movie-list';
+renderMostPopularMovies();
