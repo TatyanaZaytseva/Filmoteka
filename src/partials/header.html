@@ -2,20 +2,20 @@
     <div class="header-container container">
       <div class="header__tabs">
         <div class="header__title-panel">
-          <a href="" class="header__logo"
-            ><svg class="icon" width="30px" height="30px">
-              <use href="./images/film-logo.svg"></use></svg
-            ><span class="logo-title">Filmoteka</span></a>
+            <a href="" class="header__logo">
+                <svg class="icon" width="30px" height="30px"><use href="./images/film-logo.svg"></use></svg>
+                <span class="logo-title">Filmoteka</span>
+            </a>
         </div>
         <nav class="header__nav">
           <ul class="header__controls">
-            <li><a href="#home" class="header__controls-item btn1">Home</a></li>
-            <li><a href="#mylibrary" class="header__controls-item btn2">My Library</a></li>
+            <li><a href="#home" class="header__controls-item btn__home">Home</a></li>
+            <li><a href="#mylibrary" class="header__controls-item btn__library">My Library</a></li>
           </ul>
         </nav>
       </div>
-      <div class="header__panes">
-        <form class="pane header__pane-search-form">
+      <div class="header__form">
+        <form class="header__box-search-form">
           <label class="header__search-form-lab">
             <input
               type="text"
@@ -24,18 +24,16 @@
               class="header__search-form-input"
             />
           </label>
-          <button type="submit" class="header__input-search-buttons">
-            <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
-          </button>
+          <button type="submit" class="header__input-search-buttons"></button>
         </form>
   
-        <div class="pane" id="mylibrary">
+        <div class="header__library">
           <ul class="header__library-buttons">
             <li class="header__library-buttons-item">
-              <button type="button" class="header__library-buttons-button watched">watched</button>
+              <button type="button" class="library-buttons-button watched">watched</button>
             </li>
             <li class="header__library-buttons-item">
-              <button type="button" class="header__library-buttons-button queue">queue</button>
+              <button type="button" class="library-buttons-button queue">queue</button>
             </li>
           </ul>
         </div>

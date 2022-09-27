@@ -7,7 +7,13 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media screen and (min-width: 768px) {
+        height: 230px;
+        background-image: url(../src/images/mob-abstract-background-with-red-lines-2x.jpeg);
 }
+}
+
 .header-container {
 }
 .container {
@@ -20,7 +26,10 @@
     display: flex;
 }
 .icon {
-    fill: #ffffff;
+    display: block;
+    padding: 0;
+    margin-top: 2px;
+    margin-right: 10px;
 }
 .logo-title {
     font-family: 'Roboto';
@@ -43,21 +52,23 @@
     display: none;
   }
 }
+.icon {
+}
+.logo-title {
+}
 .header__nav {
 }
 .header__controls {
 }
 .header__controls-item {
 }
-.btn1 {
+.btn__home {
 }
-.btn2 {
+.btn__library {
 }
-.header__panes {
+.header__form {
 }
-.pane {
-}
-.header__pane-search-form {
+.header__box-search-form {
 }
 .header__search-form-lab {
 }
@@ -65,17 +76,13 @@
 }
 .header__input-search-buttons {
 }
-.fa-solid {
-}
-.fa-magnifying-glass {
-}
-.icon-animation-2 {
+.header__library {
 }
 .header__library-buttons {
 }
 .header__library-buttons-item {
 }
-.header__library-buttons-button {
+.library-buttons-button {
 }
 .watched {
 }
