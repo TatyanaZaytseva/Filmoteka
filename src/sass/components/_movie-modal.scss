@@ -1,0 +1,92 @@
+.movie-modal {
+  display: flex;
+  position: fixed;
+  background: $modalBgColor;
+  max-width: 805px;
+  max-height: calc(100% - 30px);
+  padding: 40px 12px;
+  left: 50%;
+  top: 50%;
+  overflow: auto;
+  transform: translate(-50%, -50%);
+
+  &__poster {
+    padding-right: 16px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+  }
+
+  &__descr-title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__descr {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+    margin: 20px 0;
+  }
+
+  &__info-table {
+    margin-top: 20px;
+
+    td {
+      padding-bottom: 8px;
+
+      &:first-child {
+        min-width: 152px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: $textColor;
+
+      }
+
+      &:last-child {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: $titleTextColor;
+      }
+    }
+
+    tr:last-child {
+
+      td {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__rating {
+    color: $mainTextColor;
+    display: inline-block;
+    line-height: 16px;
+    background-color: $mainBtnBgColor;
+    padding: 1px 10px;
+    border-radius: 5px;
+  }
+
+  &__btn {
+    margin: 0 8px;
+  }
+
+  &__close {
+    position: absolute;
+    cursor: pointer;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+// .icon {
+//   fill: #000;
+// }
