@@ -3,13 +3,13 @@
       <div class="header__tabs">
         <div class="header__title-panel">
             <a href="" class="header__logo">
-                <svg class="icon" width="30px" height="30px"><use href="./images/film-logo.svg"></use></svg>
+                <img src="./images/film-logo.svg" alt="Logotype Filmoteka" class="icon" width="30px" height="30px">
                 <span class="logo-title">Filmoteka</span>
             </a>
         </div>
         <nav class="header__nav">
           <ul class="header__controls">
-            <li><a href="#home" class="header__controls-item btn__home">Home</a></li>
+            <li><a href="#home" class="header__controls-item btn__home current">Home</a></li>
             <li><a href="#mylibrary" class="header__controls-item btn__library">My Library</a></li>
           </ul>
         </nav>
@@ -24,7 +24,9 @@
               class="header__search-form-input"
             />
           </label>
-          <button type="submit" class="header__input-search-buttons"></button>
+          <button type="submit" class="header__input-search-buttons">
+            <img src="./images/search-icon.svg" class="search__icon" width="15px" height="15px" alt="">
+          </button>
         </form>
   
         <div class="header__library">
