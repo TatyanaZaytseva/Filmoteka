@@ -16,7 +16,8 @@
       <include src="./partials/movie-list.html"></include>
     </main>
     <footer></footer>
-    <script src="./index.js" type="module"></script>
+
+    <!-- Нужно перенести в Partial и подключить отдельным файлом -->
     <div class="movie-modal visually-hidden">
       <span class="movie-modal__close">
         <svg class="icon" width="30" height="30">
@@ -48,7 +49,16 @@
         </table>
         <div class="movie-modal__descr">
           <h3 class="movie-modal__descr-title">About</h3>
-          <p>Four of the West's most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they've been double crossed – but by who and how?</p>
+          <p>
+            Four of the West's most infamous outlaws assemble to steal a huge
+            stash of gold from the most corrupt settlement of the gold rush
+            towns. But not all goes to plan one is killed and the other three
+            escapes with bags of gold hide out in the abandoned gold mine where
+            they happen across another gang of three – who themselves were
+            planning to hit the very same bank! As tensions rise, things go from
+            bad to worse as they realise the bags of gold are filled with
+            lead... they've been double crossed – but by who and how?
+          </p>
         </div>
         <div class="movie-modal__buttons">
           <button class="movie-modal__btn btn btn--dark">add to Watched</button>
@@ -56,5 +66,8 @@
         </div>
       </div>
     </div>
+    <!-- Нужно перенести в Partial и подключить отдельным файлом -->
+
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
