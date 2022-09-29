@@ -1,5 +1,5 @@
 import { refs } from './refs';
-console.log(refs.addToWatchedBtn);
+// console.log(refs.addToWatchedBtn);
 const STORAGE_KEY = 'movie';
 refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick());
 
