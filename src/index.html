@@ -16,8 +16,12 @@
       <include src="./partials/movie-list.html"></include>
     </main>
     <footer></footer>
-
     <!-- Нужно перенести в Partial и подключить отдельным файлом -->
+    <footer>
+      <include src="./partials/footer.html"></include>
+    </footer>
+    <script src="./index.js" type="module"></script>
+    <footer></footer>
     <div class="movie-modal visually-hidden">
       <span class="movie-modal__close">
         <svg class="icon" width="30" height="30">
@@ -61,12 +65,24 @@
           </p>
         </div>
         <div class="movie-modal__buttons">
-          <button class="movie-modal__btn btn btn--dark">add to Watched</button>
-          <button class="movie-modal__btn btn btn--dark">add to queue</button>
+          <button
+            type="button"
+            class="movie-modal__btn btn btn--dark add-to-watched"
+          >
+            add to Watched
+          </button>
+          <button
+            type="button"
+            class="movie-modal__btn btn btn--dark add-to-queue"
+          >
+            add to queue
+          </button>
         </div>
       </div>
     </div>
+
     <!-- Нужно перенести в Partial и подключить отдельным файлом -->
+
 
     <script src="./index.js" type="module"></script>
   </body>
