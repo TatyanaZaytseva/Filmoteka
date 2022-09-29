@@ -21,3 +21,5 @@ export const renderMostPopularMovies = () => {
     renderMovies(results);
   });
 };
+
+export { moviesWrapper };
