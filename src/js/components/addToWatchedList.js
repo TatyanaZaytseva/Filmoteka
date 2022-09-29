@@ -1,11 +1,11 @@
 import { refs } from './refs';
-
+console.log(refs.addToWatchedBtn);
 const STORAGE_KEY = 'movie';
 refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick());
 
 function onAddToWatchedBtnClick(event) {
   setInLocalStorage();
-  refs.addToWatchedBtn.classList.add('is-hidden');
+  refs.addToWatchedBtn.getAttribute('disabled');
 }
 function setInLocalStorage(data) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
