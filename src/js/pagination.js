@@ -1,117 +1,135 @@
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
+import { fetchFilm } from './fetchFilm';
+import { moviesWrapper } from './components/movie-list';
+// import { movieSearcher } from '../search';
 
-const HOME = 1;
-const SEARCH = 2;
-const MY_LIBRARY = 3;
+const inputRef = document.querySelector('.header__form-input');
+const gallery = document.querySelector('.movie-list');
 
-const site = {
-  currentPage: 0,
-  pagination: null,
-};
+const btn1Ref = document.querySelector('[data-index="1"]');
+const btn2Ref = document.querySelector('[data-index="2"]');
+const btn3Ref = document.querySelector('[data-index="3"]');
+const btn4Ref = document.querySelector('[data-index="4"]');
+const btn5Ref = document.querySelector('[data-index="5"]');
+const firstPageRef = document.querySelector('.first-button');
+const lastPageRef = document.querySelector('.last-button');
+const paginationRef = document.querySelector('.pagination-container');
+const rightArrowRef = document.querySelector('.arrow-right');
+const leftArrowRef = document.querySelector('.arrow-left');
+const prevDotsRef = document.querySelector('#previous');
+const afterDotsRef = document.querySelector('#after');
 
-const paginationOptions = {
-  totalPages: 1,
-  totalItems: 20,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  centerAlign: true,
-  template: {
-    page: '<a href="#" class="tui-page-btn-custom">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn-custom tui-is-selected-custom">{{page}}</strong>',
-    moveButton:
-      '<a id="{{type}}" href="#" class="tui-page-btn-custom tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}"></span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span id="{{type}}" class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn-custom tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
-};
+paginationRef.addEventListener('click', onPaginationClick);
 
-const paginationBoxEl = document.querySelector('#tui-pagination-container');
+let currentPage = 1;
 
-const initPagination = (e_paginationOptions = {}) => {
-  const l_paginationOptions = { ...paginationOptions, ...e_paginationOptions };
-  paginationBoxEl.classList.add('visually-hidden');
-  site.pagination = new Pagination(paginationBoxEl, l_paginationOptions);
-};
+let btns = document.querySelectorAll('.pagination-button');
 
-const updateTotalPagesNumber = (totalResults, totalPages) => {
-  site.pagination.reset(totalResults);
-  paginationOptions.totalPages = totalPages;
-};
+prevDotsRef.hidden = true;
+leftArrowRef.hidden = true;
+firstPageRef.hidden = true;
 
-const getCurrentPage = () => site.pagination.getCurrentPage();
-
-const stylePagination = (firstPage, curPage) => {
-  let { totalPages, visiblePages } = paginationOptions;
-  const middleVisiblePage = Math.ceil(visiblePages / 2);
-
-  if (totalPages <= 1) {
-    paginationBoxEl.classList.add('visually-hidden');
-  } else {
-    document.querySelector(
-      '.tui-page-btn-custom.tui-last'
-    ).innerHTML = `${totalPages}`;
-    document.querySelector(
-      '.tui-page-btn-custom.tui-first'
-    ).innerHTML = `${firstPage}`;
-
-    if (curPage < firstPage + middleVisiblePage || totalPages <= visiblePages) {
-      document
-        .querySelector('.tui-page-btn-custom.tui-first')
-        .classList.add('visually-hidden');
-      document
-        .querySelector('.tui-page-btn-custom.tui-prev')
-        .classList.add('visually-hidden');
-    } else {
-      document.querySelector('#prev')?.after(document.querySelector('#first'));
-      document
-        .querySelector('.tui-page-btn-custom.tui-first')
-        .classList.remove('visually-hidden');
-      document
-        .querySelector('.tui-page-btn-custom.tui-prev')
-        .classList.remove('visually-hidden');
+function onPaginationClick(event) {
+  if (event.target.tagName === 'BUTTON') {
+    if (Number(event.target.textContent)) {
+      currentPage = Number(event.target.textContent);
     }
 
-    if (
-      curPage > totalPages - middleVisiblePage ||
-      totalPages <= visiblePages
-    ) {
-      document
-        .querySelector('.tui-page-btn-custom.tui-last')
-        .classList.add('visually-hidden');
-      document
-        .querySelector('.tui-page-btn-custom.tui-next')
-        .classList.add('visually-hidden');
-    } else {
-      document.querySelector('#last')?.after(document.querySelector('#next'));
-      document
-        .querySelector('.tui-page-btn-custom.tui-last')
-        .classList.remove('visually-hidden');
-      document
-        .querySelector('.tui-page-btn-custom.tui-next')
-        .classList.remove('visually-hidden');
+    prevDotsRef.hidden = true;
+    afterDotsRef.hidden = true;
+
+    if (event.target.classList.contains('pagination-button')) {
+      btns.forEach(el => el.classList.remove('pagination--current'));
+      event.target.classList.add('pagination--current');
     }
-    paginationBoxEl.classList.remove('visually-hidden');
+
+    if (event.target.classList.contains('arrow-right') && currentPage < 1000) {
+      btns.forEach(el => el.classList.remove('pagination--current'));
+      btn1Ref.classList.add('pagination--current');
+      btn1Ref.textContent = Number(btn1Ref.textContent) + 5;
+      btn2Ref.textContent = Number(btn2Ref.textContent) + 5;
+      btn3Ref.textContent = Number(btn3Ref.textContent) + 5;
+      btn4Ref.textContent = Number(btn4Ref.textContent) + 5;
+      btn5Ref.textContent = Number(btn5Ref.textContent) + 5;
+      currentPage = btn1Ref.textContent;
+    }
+
+    if (event.target.classList.contains('arrow-left') && currentPage >= 5) {
+      btns.forEach(el => el.classList.remove('pagination--current'));
+      btn1Ref.textContent = Number(btn1Ref.textContent) - 5;
+      btn2Ref.textContent = Number(btn2Ref.textContent) - 5;
+      btn3Ref.textContent = Number(btn3Ref.textContent) - 5;
+      btn4Ref.textContent = Number(btn4Ref.textContent) - 5;
+      btn5Ref.textContent = Number(btn5Ref.textContent) - 5;
+      btn5Ref.classList.add('pagination--current');
+      currentPage = btn5Ref.textContent;
+    }
+
+    if (event.target.classList.contains('first-button')) {
+      btns.forEach(el => el.classList.remove('pagination--current'));
+      btn1Ref.textContent = 1;
+      btn2Ref.textContent = 2;
+      btn3Ref.textContent = 3;
+      btn4Ref.textContent = 4;
+      btn5Ref.textContent = 5;
+      btn1Ref.classList.add('pagination--current');
+      currentPage = btn1Ref.textContent;
+      leftArrowRef.hidden = true;
+      prevDotsRef.hidden = true;
+      firstPageRef.hidden = true;
+    }
+
+    if (event.target.classList.contains('last-button')) {
+      btns.forEach(el => el.classList.remove('pagination--current'));
+      btn1Ref.textContent = Number(lastPageRef.textContent) - 4;
+      btn2Ref.textContent = Number(lastPageRef.textContent) - 3;
+      btn3Ref.textContent = Number(lastPageRef.textContent) - 2;
+      btn4Ref.textContent = Number(lastPageRef.textContent) - 1;
+      btn5Ref.textContent = lastPageRef.textContent;
+      btn5Ref.classList.add('pagination--current');
+      currentPage = btn5Ref.textContent;
+      rightArrowRef.hidden = true;
+      afterDotsRef.hidden = true;
+      lastPageRef.hidden = true;
+    }
+
+    if (Number(currentPage) > 5) {
+      leftArrowRef.hidden = false;
+      prevDotsRef.hidden = false;
+      firstPageRef.hidden = false;
+    } else {
+      leftArrowRef.hidden = true;
+      prevDotsRef.hidden = true;
+      firstPageRef.hidden = true;
+    }
+
+    if (Number(currentPage) < 996) {
+      rightArrowRef.hidden = false;
+      afterDotsRef.hidden = false;
+      lastPageRef.hidden = false;
+    }
+
+    moviesWrapper.innerHTML = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (inputRef.value !== '') {
+      movieSearcher(inputRef.value, currentPage);
+    } else {
+      fetchFilm();
+    }
   }
-};
+}
 
-export {
-  initPagination,
-  updateTotalPagesNumber,
-  getCurrentPage,
-  stylePagination,
-  HOME,
-  SEARCH,
-  MY_LIBRARY,
-  site,
-  paginationBoxEl,
-};
+let pageSize = 9;
+
+function defineResultsPerPage() {
+  if (window.innerWidth >= 1024) {
+    pageSize = 9;
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    pageSize = 8;
+  } else if (window.innerWidth < 768) {
+    pageSize = 4;
+  }
+  return pageSize;
+}
+
+export { currentPage, defineResultsPerPage };
