@@ -3,8 +3,8 @@ import './js/globals';
 import './js/pagination';
 
 import './js/components/refs';
-import './js/components/addToWatchedList';
-import './js/components/addToQueue';
+// import './js/components/addToWatchedList';
+// import './js/components/addToQueue';
 import './js/components/movie-list';
 import './js/components/scrollUpBtn';
 

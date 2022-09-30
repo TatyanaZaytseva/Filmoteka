@@ -1,16 +1,12 @@
 import { refs } from './refs';
 import { STORAGE_KEY_QUEUE } from '../globals';
 
-if (refs.modal.classList.contains('visually-hidden')) {
-  refs.addToQueueBtn.removeEventListener('click', onAddToQueueBtnClick);
-}
+let btn;
 
-refs.addToQueueBtn.addEventListener('click', onAddToQueueBtnClick);
-
-function onAddToQueueBtnClick(event) {
-  console.log(event);
+function onAddToQueueBtnClick(movie) {
+  console.log(movie);
   setInLocalStorage();
-  refs.addToQueueBtn.setAttribute('disabled', '');
+  btn.setAttribute('disabled', '');
 }
 
 function setInLocalStorage(id) {
@@ -24,4 +20,11 @@ function setInLocalStorage(id) {
     parsedMovies.push(id);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(parsedMovies));
   }
+}
+
+export function addToQueueBtnClickListener(movie) {
+  btn = document.querySelector('.add-to-queue');
+  btn.addEventListener('click', () => {
+    onAddToQueueBtnClick(movie)
+  });
 }
