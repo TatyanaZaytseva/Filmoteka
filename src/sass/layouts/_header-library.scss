@@ -1,10 +1,9 @@
 // header
-.library {
+.header-library {
     background-image: url(../images/mob-library-background-2x.jpeg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
 
     @media screen and (min-width: 768px) {
         height: 219px;
@@ -15,9 +14,7 @@
     height: 216px;
     background-image: url(../images/desc-abstract-background-library-2x.jpeg);
 }
-
 }
-
 .header-container {
     min-width: 320px;
     height: 230px;
@@ -98,10 +95,6 @@
     border-radius: 2px;
   }
 
-.btn__home {
-}
-.btn__library {
-}
 .header__form-wrap {
     margin-top: 44px;
 }
@@ -132,12 +125,15 @@
   @media screen and (min-width: 768px) {
     width: 336px;
   }
+  @media screen and (min-width: 1024px) {
+    right: 394px;
+  }
 }
 .header__search-btn {
-    padding: 3px;
+// padding: 3px;
   position: absolute;
-  right: 0px;
-  bottom: 0;
+  right: 31%;
+  bottom: 3px;
   background: transparent;
   border: none;
   outline: none;
@@ -151,12 +147,11 @@
   }
 }
 
-.header__library {
-}
 .header__library-buttons {
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 52px;
 }
 .header__library-buttons-item:first-child {
     margin-right: 20px;
@@ -193,10 +188,4 @@
 .library-buttons-button:focus {
     background-color: #ff6b08;
     border: 1px solid #ff6b08;
-}
-
-.watched {
-
-}
-.queue {
 }
