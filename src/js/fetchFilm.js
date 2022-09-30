@@ -5,17 +5,17 @@ url.searchParams.append('language', 'en-US');
 url.searchParams.append('page', '1');
 url.searchParams.append('include_adult', 'false');
 
-import axios from "axios";
+import axios from 'axios';
 
 export async function fetchFilm(searchQuery, page) {
-    const fetchFilmUrl = new URL(url);
-    fetchFilmUrl.searchParams.append('query', searchQuery);
-    fetchFilmUrl.searchParams.append('page', page);
+  const fetchFilmUrl = new URL(url);
+  fetchFilmUrl.searchParams.append('query', searchQuery);
+  fetchFilmUrl.searchParams.append('page', page);
 
-    try {
-        const response = await axios.get(fetchFilmUrl.toString())
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
+  try {
+    const response = await axios.get(fetchFilmUrl.toString());
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 }
