@@ -55,3 +55,18 @@ export const createPagination = (page, itemsPerPage, totalItems) => {
 };
 // Проверка функции вручную (потом удалить)
 createPagination(1, 1, 25);
+
+// добавить в функции
+// import { createPagination, paginationInit } from './pagination';
+
+// функция фильмов на главной
+// paginationInit.searchType = 'search films';
+// const totalPages = data.total_pages;
+// const itemsPerPage = data.results.length;
+// createPagination(page, itemsPerPage, totalPages);
+
+// функция поиска
+// paginationInit.searchType = 'popular films';
+// const totalPages = r.data.total_pages;
+// const itemsPerPage = r.data.results.length;
+// createPagination(page, itemsPerPage, totalPages);
