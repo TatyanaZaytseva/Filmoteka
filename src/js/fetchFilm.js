@@ -1,4 +1,4 @@
-const KEY = '<<ae750ece0804f05464dc1609a148e97e>>';
+const KEY = 'ae750ece0804f05464dc1609a148e97e';
 const url = new URL('https://api.themoviedb.org/3/search/movie');
 url.searchParams.append('api_key', KEY);
 url.searchParams.append('language', 'en-US');
