@@ -15,3 +15,5 @@ function scrollUpToTop() {
     block: 'start',
   });
 }
+
+export { scrollUpToTop };
