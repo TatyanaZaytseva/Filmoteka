@@ -14,7 +14,6 @@
     background-color: $mainBtnBgColor;
     color: $btnHoverColor;
     border-color: $mainBtnBgColor;
-
   }
 
   &--light {
@@ -26,4 +25,10 @@
     color: $btnDarkColor;
     border: 1px solid $btnDarkBorderColor;
   }
+}
+
+.add-to-watched:disabled,
+.add-to-queue:disabled {
+  opacity: 0.5;
+  cursor: default;
 }

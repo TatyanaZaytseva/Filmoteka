@@ -1,15 +1,15 @@
-const refs = {
-  // gallery: document.querySelector('.gallery'),
+export const refs = {
+  container: document.querySelector('.container'),
+  library: document.querySelector('.library'),
   watchedBtn: document.querySelector('.watched'),
   queueBtn: document.querySelector('.queue'),
-  // addToWatchedBtn: document.querySelector('.add-to-watched'),
-  // addToQueueBtn: document.querySelector('add-to-queue'),
-  container: document.querySelector('.container'),
+  modal: document.querySelector('.movie-modal'),
+  addToWatchedBtn: document.querySelector('.add-to-watched'),
+  addToQueueBtn: document.querySelector('.add-to-queue'),
 };
 
-// console.log(refs.gallery);
-console.log(refs.watchedBtn);
-console.log(refs.queueBtn);
+// console.log(refs.watchedBtn);
+// console.log(refs.queueBtn);
 // console.log(refs.addToWatchedBtn);
 // console.log(refs.addToQueueBtn);
-console.log(refs.container);
+// console.log(refs.container);
