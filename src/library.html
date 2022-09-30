@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
+    <link rel="stylesheet" href="./sass/main.scss" />
+    <link rel="shortcut icon" href="./images/logo.png" />
+  </head>
+  <body>
+    <header>
+      <include src="./partials/header-library.html"></include>
+    </header>
+    <main>
+      <include src="./partials/movie-list.html"></include>
+    </main>
+    <footer>
+      <include src="./partials/footer.html"></include>
+    </footer>
+    <script src="./index.js" type="module"></script>
+    <footer></footer>
+    <div class="movie-modal visually-hidden">
+      <span class="movie-modal__close">
+        <svg class="icon" width="30" height="30">
+          <use href="./images/symbol-defs.svg#icon-close"></use>
+        </svg>
+      </span>
+      <div class="movie-modal__poster">
+        <img class="movie-modal__img" width="375" height="478" src="#" alt="" />
+      </div>
+      <div class="movie-modal__info">
+        <h2 class="movie-modal__title">A FISTFUL OF LEAD</h2>
+        <table class="movie-modal__info-table">
+          <tr>
+            <td>Vote / Votes</td>
+            <td><span class="movie-modal__rating">7.3</span> / 1260</td>
+          </tr>
+          <tr>
+            <td>Popularity</td>
+            <td>100.2</td>
+          </tr>
+          <tr>
+            <td>Original Title</td>
+            <td>A FISTFUL OF LEAD</td>
+          </tr>
+          <tr>
+            <td>Genre</td>
+            <td>Western</td>
+          </tr>
+        </table>
+        <div class="movie-modal__descr">
+          <h3 class="movie-modal__descr-title">About</h3>
+          <p>
+            Four of the West's most infamous outlaws assemble to steal a huge
+            stash of gold from the most corrupt settlement of the gold rush
+            towns. But not all goes to plan one is killed and the other three
+            escapes with bags of gold hide out in the abandoned gold mine where
+            they happen across another gang of three – who themselves were
+            planning to hit the very same bank! As tensions rise, things go from
+            bad to worse as they realise the bags of gold are filled with
+            lead... they've been double crossed – but by who and how?
+          </p>
+        </div>
+        <div class="movie-modal__buttons">
+          <button
+            type="button"
+            class="movie-modal__btn btn btn--dark add-to-watched"
+          >
+            add to Watched
+          </button>
+          <button
+            type="button"
+            class="movie-modal__btn btn btn--dark add-to-queue"
+          >
+            add to queue
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
