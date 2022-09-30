@@ -1,0 +1,18 @@
+.scroll-up {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $descrTextColor;
+  position: fixed;
+  bottom: 80px;
+  right: 7%;
+  cursor: pointer;
+
+  &__text {
+    color: #fff;
+    font-size: 40px;
+  }
+}
