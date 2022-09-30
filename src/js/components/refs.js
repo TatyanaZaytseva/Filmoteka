@@ -6,7 +6,9 @@ export const refs = {
   // gallery: document.querySelector('.gallery'),
   watchedBtn: document.querySelector('.watched'),
   queueBtn: document.querySelector('.queue'),
-  modal: document.querySelector('.movie-modal'),
+  modal: document.querySelector('.modal-overlay'),
   addToWatchedBtn: document.querySelector('.add-to-watched'),
-  addToQueueBtn: document.querySelector('.add-to-queue'),
+  movieList: document.querySelector('.movie-list'),
+  movieModalWrapper: document.querySelector('.movie-modal-wrapper-js'),
+  movieModalClose: document.querySelector('.movie-modal-close-js'),
 };

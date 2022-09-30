@@ -2,8 +2,8 @@ import './js/fetchFilm';
 import './js/globals';
 
 import './js/components/refs';
-import './js/components/addToWatchedList';
-import './js/components/addToQueue';
+// import './js/components/addToWatchedList';
+// import './js/components/addToQueue';
 import './js/components/movie-list';
 import './js/components/pagination';
 import './js/components/scrollUpBtn';
