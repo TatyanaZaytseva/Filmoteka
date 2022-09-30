@@ -1,25 +1,15 @@
 import Pagination from 'tui-pagination';
-// import { fetchMoves } from './';
-// import {} from
-// import {} from Тут будуть імпорти робочих функцій пошуку,топ фільмів та кнопки підняття угору
-
-//////////////////////////
-
-async function fetchFilms() {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=a115fde3660c9e5b413d785f288ed44e`
-  );
-  const films = await data.json();
-
-  return films.results;
-}
-//////////////////////////
+// import { функция фильмов на главной } from '';
+// import { функция поиска} from ''
+// import { функция поднятие вверх } from ''
 
 export const paginationInit = {
   startPage: 1,
   searchType: '',
   pagination: null,
 };
+
+const pagin = document.querySelector('#pagination');
 
 export const createPagination = (page, itemsPerPage, totalItems) => {
   const options = {
@@ -47,7 +37,7 @@ export const createPagination = (page, itemsPerPage, totalItems) => {
     },
   };
 
-  const pagination = new Pagination('pagination', options);
+  const pagination = new Pagination(pagin, options);
   paginationInit.pagination = pagination;
 
   pagination.on('afterMove', async event => {
@@ -63,3 +53,5 @@ export const createPagination = (page, itemsPerPage, totalItems) => {
   });
   return pagination;
 };
+// Проверка функции вручную (потом удалить)
+createPagination(1, 1, 25);
