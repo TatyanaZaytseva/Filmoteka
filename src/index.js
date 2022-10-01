@@ -24,4 +24,9 @@ import './js/main';
 
 import './js/components/searchMovie';
 
+
+
+import './js/team';
+
+
 import './js/components/libraryBtn';

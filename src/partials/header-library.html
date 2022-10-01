@@ -14,21 +14,6 @@
           </ul>
         </nav>
       </div>
-      <!-- <div class="header__form-wrap"> -->
-        <!-- <form class="header__form">
-          <label class="header__form-label">
-            <input
-              type="text"
-              name="searchQuery"
-              placeholder="Movie search"
-              class="header__form-input"
-            />
-          </label>
-          <button type="submit" class="header__search-btn">
-            <img src="./images/search-icon.svg" class="search__icon" width="15px" height="15px" alt="">
-          </button>
-        </form> -->
-  
         <div class="header__library">
           <ul class="header__library-buttons">
             <li class="header__library-buttons-item">
@@ -40,5 +25,21 @@
           </ul>
         </div>
       </div>
+       <div class="theme-switch__control">
+          <input
+            class="theme-switch__toggle"
+            type="checkbox"
+            name="theme"
+            id="theme-switch-toggle"
+            aria-label="Переключить между тёмной и светлой темой"
+          />
+          <label
+            aria-hidden="true"
+            class="theme-switch__track"
+            for="theme-switch-toggle"
+          >
+          </label>
+        </div>
     </div>
   </header>
+  
