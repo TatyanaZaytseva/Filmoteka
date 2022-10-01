@@ -52,10 +52,30 @@ function onClickBtnQueue() {
   console.log('click', 'queue');
   const queueFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_QUEUE));
   if (queueFilms) {
+    const renderqueueFilms = queueFilms.map(
+      ({ title, id, poster_path, release_date, genres, vote_average }) => {
+        console.log(genres);
+        return `  <li class="movie-card">
+      <article class="movie-card__article movie-item-js" data-id="${id}">
+        <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${poster_path}">
+        <div class="movie-card__header">
+          <h2 class="movie-card__title">${title}</h2>
+          <div class="movie-card__info">
+            ${genres
+              .map(item => item.name)
+              .join(' ')} | ${release_date.substring(0, 4)}
+          </div>
+            <div>${vote_average}</div>
+
+        </div>
+      </article>
+    </li>`;
+      }
+    );
     console.log(queueFilms);
 
     // renderCard();
-    // refs.library.innerHTML = test;
+    refs.library.innerHTML = renderqueueFilms;
   }
 }
 
