@@ -1,27 +1,35 @@
-import { refs } from './refs';
-import { STORAGE_KEY } from '../globals';
+// import { refs } from './refs';
+import { STORAGE_KEY_WATCHED } from '../globals';
+console.log(STORAGE_KEY_WATCHED);
 
-if (refs.modal.classList.contains('visually-hidden')) {
-  refs.addToWatchedBtn.removeEventListener('click', onAddToWatchedBtnClick);
-}
+let btn;
 
-refs.addToWatchedBtn.addEventListener('click', onAddToWatchedBtnClick);
-
-function onAddToWatchedBtnClick(event) {
-  console.log(event);
-  setInLocalStorage();
-  refs.addToWatchedBtn.setAttribute('disabled', '');
-}
-
-function setInLocalStorage(id) {
-  const savedMovies = localStorage.getItem(STORAGE_KEY);
-  if (!id) return;
-  if (!savedMovies) {
-    const data = [id];
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+function onAddToWatchedBtnClick(movie) {
+  setInLocalStorage(movie);
+  if (btn.textContent === 'remove from Watched') {
+    btn.textContent = 'add to Watched';
   } else {
-    const parsedMovies = JSON.parse(savedMovies);
-    parsedMovies.push(id);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedMovies));
+    btn.textContent = 'remove from Watched';
   }
+}
+
+function setInLocalStorage(movie) {
+  const savedMovies = localStorage.getItem(STORAGE_KEY_WATCHED);
+  if (!movie) return;
+  if (!savedMovies) {
+    const data = [movie];
+    localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(data));
+  } else {
+    // return;
+    const parsedMovies = JSON.parse(savedMovies);
+    parsedMovies.push(movie);
+    localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(parsedMovies));
+  }
+}
+
+export function addToWatchedBtnClickListener(movie) {
+  btn = document.querySelector('.add-to-watched');
+  btn.addEventListener('click', () => {
+    onAddToWatchedBtnClick(movie);
+  });
 }

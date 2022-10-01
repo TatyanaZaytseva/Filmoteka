@@ -1,4 +1,5 @@
 import './js/fetchFilm';
+import './js/components/refs';
 import './js/globals';
 
 // import './js/components/addToWatchedList';
@@ -20,3 +21,8 @@ import './js/http/getMovieDetails';
 import './js/templates/movie-card';
 
 import './js/main';
+
+
+
+import './js/components/searchMovie';
+
