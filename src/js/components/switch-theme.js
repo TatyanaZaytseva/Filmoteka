@@ -6,12 +6,11 @@ const Theme = {
 };
 
 refs.toggle.addEventListener('change', onChecked);
-// checkLocalStorage();
+
 changePagesTheme();
 
 function changePagesTheme() {
   const pageName = document.location.pathname;
-  console.log(pageName);
   if (pageName.includes('index') || pageName.includes('library')) {
     checkLocalStorage();
   }
@@ -21,15 +20,15 @@ function checkLocalStorage() {
   if (localStorage.getItem('checked') === 'true') {
     refs.toggle.checked = true;
     document.body.classList.add('dark-theme');
-    refs.tuiPage.classList.add('dark-theme');
+    // refs.tuiPage.classList.add('dark-theme');
     refs.footer.classList.add('dark-theme');
     // refs.movieModal.classList.add('dark-theme');
   } else {
     refs.toggle.checked = false;
     document.body.classList.add('light-theme');
-    refs.tuiPage.classList.add('light-theme');
+    // refs.tuiPage.classList.add('light-theme');
     refs.footer.classList.add('light-theme');
-    refs.movieModal.classList.add('light-theme');
+    // refs.movieModal.classList.add('light-theme');
   }
 }
 
@@ -37,8 +36,8 @@ function onChecked(event) {
   if (refs.toggle.checked) {
     refs.body.classList.remove('light-theme');
     refs.body.classList.add('dark-theme');
-    refs.tuiPage.classList.remove('light-theme');
-    refs.tuiPage.classList.add('dark-theme');
+    // refs.tuiPage.classList.remove('light-theme');
+    // refs.tuiPage.classList.add('dark-theme');
     refs.footer.classList.remove('light-theme');
     refs.footer.classList.add('dark-theme');
     // refs.movieModal.classList.remove('light-theme');
@@ -52,8 +51,8 @@ function onChecked(event) {
 
   refs.body.classList.remove('dark-theme');
   refs.body.classList.add('light-theme');
-  refs.tuiPage.classList.remove('dark-theme');
-  refs.tuiPage.classList.add('light-theme');
+  // refs.tuiPage.classList.remove('dark-theme');
+  // refs.tuiPage.classList.add('light-theme');
   refs.footer.classList.remove('dark-theme');
   refs.footer.classList.add('light-theme');
   // refs.movieModal.classList.remove('dark-theme');
