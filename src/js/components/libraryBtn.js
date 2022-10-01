@@ -59,58 +59,6 @@ function onClickBtnQueue() {
   }
 }
 
-// console.log(watchedFilms);
-// const ansver = function (movie, genres) {
-//   renderCard();
-// };
-
-// return test
-
-// debugger;
-// return sam(movie, movie.genres);
-//   });
-// }
-
-// const renderCardLibr = ({ title }) =>
-//     {
-//         const currentTitle = title.map(t => {
-//             return t.find(t => title === t);
-//         });
-
-//         return `
-//     <li class="movie-card">
-//       <article class="movie-card__article movie-item-js" data-id="${movie.id}">
-//         <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${movie.poster_path
-//             }">
-//         <div class="movie-card__header">
-//           <h2 class="movie-card__title">${movie.title}</h2>
-//           <div class="movie-card__info">
-//             ${currentGenres.join(', ')} | ${movie.release_date.substring(0, 4)}
-//           </div>
-//         </div>
-//       </article>
-//     </li>
-//   `;
-//     };
-// }
-// function renderTitle(movies) {
-//   return movies
-//     .map(({ title, id }) => {
-//       return `<li class="movie-card">
-//       <article class="movie-card__article movie-item-js" data-id="${id}">
-//         <img width="440" height="660" class="movie-card__img" \>
-//         <div class="movie-card__header">
-//           <h2 class="movie-card__title">${title}</h2>
-//           <div class="movie-card__info">
-//           </div>
-//         </div>
-//       </article>
-//     </li>`;
-//     })
-//     .join('');
-// }
-// console.log(renderTitle());
-
 // console.log(refs.watchedBtn);
 // console.log(renderCard);
 // if (document.title === 'Filmoteka') {
