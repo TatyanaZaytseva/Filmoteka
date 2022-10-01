@@ -1,19 +1,19 @@
 // header
 .home {
-    background-image: url(../images/mob-abstract-background-with-red-lines-1x.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(../images/mob-abstract-background-with-red-lines-1x.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-    @media screen and (min-width: 768px) {
-        height: 219px;
-        background-image: url(../images/tab-home-abstract-background-with-red-lines-2x.jpeg);
-}
+  @media screen and (min-width: 768px) {
+    height: 219px;
+    background-image: url(../images/tab-home-abstract-background-with-red-lines-2x.jpeg);
+  }
 
-@media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     height: 216px;
     background-image: url(../images/desc-home-abstract-background-with-red-lines-2x.jpeg);
-}
+  }
 }
 
 .header-library {
@@ -34,26 +34,26 @@
 }
 
 .header-container {
-    min-width: 320px;
-    height: 230px;
-    padding-top: 45px;
+  min-width: 320px;
+  height: 230px;
+  padding-top: 45px;
 }
 .header__tabs {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .header__title-panel {
-    display: flex;
+  display: flex;
 }
 .header__logo {
-    display: flex;
+  display: flex;
 }
 .icon {
-    display: block;
-    padding: 0;
-    margin-top: 2px;
-    margin-right: 10px;
+  display: block;
+  padding: 0;
+  margin-top: 2px;
+  margin-right: 10px;
 }
 .logo-title {
   font-style: normal;
@@ -76,15 +76,15 @@
   }
 }
 .header__nav {
-    display: flex;
+  display: flex;
 }
 .header__controls {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 .header__controls-item {
-    font-family: 'Roboto';
+  font-family: 'Roboto';
   text-transform: uppercase;
   font-style: normal;
   font-weight: 500;
@@ -100,50 +100,48 @@
 }
 
 .current {
-    position: relative;
-  }
-  .current::after {
-    content: '';
-    position: absolute;
-    width: 102%;
-    height: 3px;
-    left: 0;
-    bottom: -2px;
-    background: #FF001B
-    ;
-    border-radius: 2px;
-  }
+  position: relative;
+}
+.current::after {
+  content: '';
+  position: absolute;
+  width: 102%;
+  height: 3px;
+  left: 0;
+  bottom: -2px;
+  background: #ff001b;
+  border-radius: 2px;
+}
 .error__message {
   font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 1.2;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
 
-margin-top: 20px;
-margin-left: 27px;
-align-items: center;
-// text-align: center;
-color: #FF001B;
+  margin-top: 20px;
+  margin-left: 27px;
+  align-items: center;
+  // text-align: center;
+  color: #ff001b;
 
-@media screen and (min-width: 768px) {
-  text-align: center;
-  margin-left: 0;
-}
-@media screen and (min-width: 1024px) {
-  text-align: center;
-  margin-left: 0;
-}
-
+  @media screen and (min-width: 768px) {
+    text-align: center;
+    margin-left: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    text-align: center;
+    margin-left: 0;
+  }
 }
 .header__form-wrap {
-    margin-top: 44px;
+  margin-top: 44px;
 }
 .header__form {
-    position: relative;
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.14;
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.14;
 }
 
 .header__form-label {
@@ -182,8 +180,8 @@ color: #FF001B;
 
 .header__search-btn {
   position: absolute;
-  right:-2%;
-  bottom: 32px;
+  right: -2%;
+  bottom: 4px;
   background-color: transparent;
   border: none;
   outline: none;
@@ -193,12 +191,13 @@ color: #FF001B;
 
   &:hover,
   &:focus {
-    transform: scale(1.2);}
+    transform: scale(1.2);
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     right: 21%;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1279px){
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
     right: 21%;
   }
   @media screen and (min-width: 1280px) {
@@ -213,38 +212,38 @@ color: #FF001B;
   margin-top: 52px;
 }
 .header__library-buttons-item:first-child {
-    margin-right: 20px;
+  margin-right: 20px;
   @media screen and (min-width: 768px) {
     margin-right: 32px;
   }
   @media screen and (min-width: 1024px) {
     margin-right: 16px;
-}
+  }
 }
 .library-buttons-button {
-    width: 129.5px;
-    height: 44px;
-  
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-transform: uppercase;
-    background-color: inherit;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    @media screen and (min-width: 768px) {
-      width: 152px;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 148px;
-    }
+  width: 129.5px;
+  height: 44px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  background-color: inherit;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 148px;
+  }
 }
 
 .library-buttons-button:hover,
 .library-buttons-button:focus {
-    background-color: #ff6b08;
-    border: 1px solid #ff6b08;
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
 }
