@@ -21,9 +21,10 @@ function onClickBtnWatched() {
   //   renderMovieDetails();
 
   if (watchedFilms) {
-    const test = watchedFilms.map(
-      ({ title, id, poster_path, release_date, genres, vote_average }) => {
-        console.log(genres);
+    refs.emptyPage.classList.add('visually-hidden');
+    const renderWatchedFilms = watchedFilms
+      .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
+        // console.log(genres);
         return `  <li class="movie-card">
       <article class="movie-card__article movie-item-js" data-id="${id}">
         <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${poster_path}">
@@ -39,12 +40,12 @@ function onClickBtnWatched() {
         </div>
       </article>
     </li>`;
-      }
-    );
-    console.log(watchedFilms);
+      })
+      .join(' ');
+    console.log(renderWatchedFilms);
     // renderCard();
     // onRenderFilmLibrary(watchedFilms);
-    refs.library.innerHTML = test;
+    refs.library.innerHTML = renderWatchedFilms;
   }
 }
 
@@ -52,9 +53,9 @@ function onClickBtnQueue() {
   console.log('click', 'queue');
   const queueFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_QUEUE));
   if (queueFilms) {
-    const renderqueueFilms = queueFilms.map(
-      ({ title, id, poster_path, release_date, genres, vote_average }) => {
-        console.log(genres);
+    const renderQueueFilms = queueFilms
+      .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
+        // console.log(genres);
         return `  <li class="movie-card">
       <article class="movie-card__article movie-item-js" data-id="${id}">
         <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${poster_path}">
@@ -70,12 +71,12 @@ function onClickBtnQueue() {
         </div>
       </article>
     </li>`;
-      }
-    );
-    console.log(queueFilms);
+      })
+      .join(' ');
+    console.log(renderQueueFilms);
 
     // renderCard();
-    refs.library.innerHTML = renderqueueFilms;
+    refs.library.innerHTML = renderQueueFilms;
   }
 }
 

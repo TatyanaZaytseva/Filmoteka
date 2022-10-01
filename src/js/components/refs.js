@@ -15,4 +15,5 @@ export const refs = {
   movieModalWrapper: document.querySelector('.movie-modal-wrapper-js'),
   movieModalClose: document.querySelector('.movie-modal-close-js'),
   toggle: document.querySelector('.theme-switch__toggle'),
+  emptyPage: document.querySelector('.empty-page'),
 };
