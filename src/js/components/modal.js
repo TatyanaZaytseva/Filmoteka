@@ -25,15 +25,10 @@ refs.movieModalClose.addEventListener('click', () => {
   refs.modal.classList.add('visually-hidden');
 });
 
-
-// refs.modal.addEventListener('click', () => {
-//   //тут повинна бути перевірка: якщо event.target не модалка, то тоді код нижче
-//   refs.modal.classList.add('visually-hidden');
-// });
-
 refs.modal.addEventListener('click', (event) => {
-  event.target.classList.contains('modal-overlay')
-  refs.modal.classList.add('visually-hidden');
+  if (event.target.classList.contains('modal-overlay')) {
+    refs.modal.classList.add('visually-hidden');
+  }
 });
 
 
