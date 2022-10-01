@@ -22,7 +22,5 @@ import './js/templates/movie-card';
 
 import './js/main';
 
-
-
 import './js/components/searchMovie';
-
+import './js/components/libraryBtn';
