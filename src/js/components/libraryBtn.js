@@ -3,12 +3,12 @@ import { STORAGE_KEY_WATCHED } from '../globals.js';
 import { STORAGE_KEY_QUEUE } from '../globals.js';
 import { renderMovieDetails } from '../templates/movie-details.js';
 import { renderCard } from '../templates/movie-card.js';
-// import { IMAGE_URL } from '../globals';
+import { IMAGE_URL } from '../globals';
 import { getGenres } from '../http/getGenres';
-import { renderMovies } from './movie-list';
+import { moviesWrapper, renderMovies } from './movie-list';
 
-console.log(refs.watchedBtn);
-
+// console.log(refs.watchedBtn);
+// console.log(renderCard);
 // if (document.title === 'Filmoteka') {
 //   refs.watchedBtn === disabled;
 // }
@@ -35,10 +35,28 @@ function onClickBtnWatched() {
   if (watchedFilms) {
     console.log(watchedFilms);
     // renderCard();
-    onRenderFilmLibrary();
-    refs.library.innerHTML = watchedFilms;
+    // onRenderFilmLibrary(watchedFilms);
+    refs.library.innerHTML = ansver;
   }
 }
+// console.log(watchedFilms);
+const ansver = function () {
+  const test = watchedFilms.map(watchedFilm => {
+    (({ title, id }) => {
+      return `<li class="movie-card">
+      <article class="movie-card__article movie-item-js" data-id="${id}">
+        <img width="440" height="660" class="movie-card__img" \>
+        <div class="movie-card__header">
+          <h2 class="movie-card__title">${title}</h2>
+          <div class="movie-card__info">
+          </div>
+        </div>
+      </article>
+    </li>`;
+    }).join('');
+    return test;
+  });
+};
 
 function onClickBtnQueue() {
   console.log('click', 'queue');
@@ -50,7 +68,47 @@ function onClickBtnQueue() {
     refs.library.innerHTML = queueFilms;
   }
 }
+// debugger;
+// return sam(movie, movie.genres);
+//   });
+// }
 
-function onRenderFilmLibrary() {
-  renderMovies();
-}
+// const renderCardLibr = ({ title }) =>
+//     {
+//         const currentTitle = title.map(t => {
+//             return t.find(t => title === t);
+//         });
+
+//         return `
+//     <li class="movie-card">
+//       <article class="movie-card__article movie-item-js" data-id="${movie.id}">
+//         <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${movie.poster_path
+//             }">
+//         <div class="movie-card__header">
+//           <h2 class="movie-card__title">${movie.title}</h2>
+//           <div class="movie-card__info">
+//             ${currentGenres.join(', ')} | ${movie.release_date.substring(0, 4)}
+//           </div>
+//         </div>
+//       </article>
+//     </li>
+//   `;
+//     };
+// }
+// function renderTitle(movies) {
+//   return movies
+//     .map(({ title, id }) => {
+//       return `<li class="movie-card">
+//       <article class="movie-card__article movie-item-js" data-id="${id}">
+//         <img width="440" height="660" class="movie-card__img" \>
+//         <div class="movie-card__header">
+//           <h2 class="movie-card__title">${title}</h2>
+//           <div class="movie-card__info">
+//           </div>
+//         </div>
+//       </article>
+//     </li>`;
+//     })
+//     .join('');
+// }
+// console.log(renderTitle());

@@ -5,7 +5,7 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-refs.toggle.addEventListener('change', onChecked);
+// refs.toggle.addEventListener('change', onChecked);
 checkLocalStorage();
 
 function checkLocalStorage() {
@@ -16,11 +16,11 @@ function checkLocalStorage() {
     refs.footer.classList.add('dark-theme');
     refs.movieModal.classList.add('dark-theme');
   } else {
-    refs.toggle.checked = false;
+    // refs.toggle.checked = false;
     document.body.classList.add('light-theme');
     refs.tuiPage.classList.add('light-theme');
     refs.footer.classList.add('light-theme');
-    refs.movieModal.classList.add('light-theme');
+    // refs.movieModal.classList.add('light-theme');
   }
 }
 

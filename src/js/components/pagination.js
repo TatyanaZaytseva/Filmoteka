@@ -9,7 +9,7 @@ export const paginationInit = {
   pagination: null,
 };
 
-const pagin = document.querySelector('#pagination');
+// const pagin = document.querySelector('#pagination');
 
 export const createPagination = (page, itemsPerPage, totalItems) => {
   const options = {
@@ -54,7 +54,7 @@ export const createPagination = (page, itemsPerPage, totalItems) => {
   return pagination;
 };
 // Проверка функции вручную (потом удалить)
-createPagination(1, 1, 25);
+// createPagination(1, 1, 25);
 
 // добавить в функции
 // import { createPagination, paginationInit } from './pagination';
