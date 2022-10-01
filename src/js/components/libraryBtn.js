@@ -7,19 +7,6 @@ import { IMAGE_URL } from '../globals';
 import { getGenres } from '../http/getGenres';
 import { moviesWrapper, renderMovies } from './movie-list';
 
-// console.log(refs.watchedBtn);
-// console.log(renderCard);
-// if (document.title === 'Filmoteka') {
-//   refs.watchedBtn === disabled;
-// }
-// function isLibrary() {
-//   const pageName = document.location.pathname;
-//     if (pageName.includes('library')) {
-//     }
-//   else {
-//  refs.watchedBtn.removeEventListener('click');
-//   refs.queueBtn.removeEventListener('click');}
-
 console.log(document.title);
 // if (document.title === 'My Library') {
 refs.watchedBtn.addEventListener('click', onClickBtnWatched);
@@ -32,31 +19,34 @@ function onClickBtnWatched() {
 
   const watchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_WATCHED));
   //   renderMovieDetails();
+
   if (watchedFilms) {
-    console.log(watchedFilms);
-    // renderCard();
-    // onRenderFilmLibrary(watchedFilms);
-    refs.library.innerHTML = ansver;
-  }
-}
-// console.log(watchedFilms);
-const ansver = function () {
-  const test = watchedFilms.map(watchedFilm => {
-    (({ title, id }) => {
-      return `<li class="movie-card">
+    const test = watchedFilms.map(
+      ({ title, id, poster_path, release_date, genres, vote_average }) => {
+        console.log(genres);
+        return `  <li class="movie-card">
       <article class="movie-card__article movie-item-js" data-id="${id}">
-        <img width="440" height="660" class="movie-card__img" \>
+        <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${poster_path}">
         <div class="movie-card__header">
           <h2 class="movie-card__title">${title}</h2>
           <div class="movie-card__info">
+            ${genres
+              .map(item => item.name)
+              .join(' ')} | ${release_date.substring(0, 4)}
           </div>
+                    <div>${vote_average}</div>
+
         </div>
       </article>
     </li>`;
-    }).join('');
-    return test;
-  });
-};
+      }
+    );
+    console.log(watchedFilms);
+    // renderCard();
+    // onRenderFilmLibrary(watchedFilms);
+    refs.library.innerHTML = test;
+  }
+}
 
 function onClickBtnQueue() {
   console.log('click', 'queue');
@@ -65,9 +55,17 @@ function onClickBtnQueue() {
     console.log(queueFilms);
 
     // renderCard();
-    refs.library.innerHTML = queueFilms;
+    // refs.library.innerHTML = test;
   }
 }
+
+// console.log(watchedFilms);
+// const ansver = function (movie, genres) {
+//   renderCard();
+// };
+
+// return test
+
 // debugger;
 // return sam(movie, movie.genres);
 //   });
@@ -112,3 +110,16 @@ function onClickBtnQueue() {
 //     .join('');
 // }
 // console.log(renderTitle());
+
+// console.log(refs.watchedBtn);
+// console.log(renderCard);
+// if (document.title === 'Filmoteka') {
+//   refs.watchedBtn === disabled;
+// }
+// function isLibrary() {
+//   const pageName = document.location.pathname;
+//     if (pageName.includes('library')) {
+//     }
+//   else {
+//  refs.watchedBtn.removeEventListener('click');
+//   refs.queueBtn.removeEventListener('click');}

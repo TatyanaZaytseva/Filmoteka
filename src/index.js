@@ -5,7 +5,7 @@ import './js/globals';
 // import './js/components/addToWatchedList';
 // import './js/components/addToQueue';
 import './js/components/movie-list';
-// import './js/components/pagination';
+import './js/components/pagination';
 import './js/components/scrollUpBtn';
 import './js/components/switch-theme';
 import './js/components/searchMovie';
@@ -23,4 +23,5 @@ import './js/templates/movie-card';
 import './js/main';
 
 import './js/components/searchMovie';
+
 import './js/components/libraryBtn';
