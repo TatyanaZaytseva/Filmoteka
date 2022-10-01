@@ -11,7 +11,11 @@ changePagesTheme();
 
 function changePagesTheme() {
   const pageName = document.location.pathname;
-  if (pageName.includes('index') || pageName.includes('library')) {
+  if (
+    pageName.includes('') ||
+    pageName.includes('index') ||
+    pageName.includes('library.html')
+  ) {
     checkLocalStorage();
   }
 }
