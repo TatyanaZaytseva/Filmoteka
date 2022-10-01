@@ -1,41 +1,41 @@
 // header
 .header-library {
-    background-image: url(../images/mob-library-background-2x.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(../images/mob-library-background-2x.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-    @media screen and (min-width: 768px) {
-        height: 219px;
-        background-image: url(../images/tab-library-abstract-background-2x.jpeg);
-}
+  @media screen and (min-width: 768px) {
+    height: 219px;
+    background-image: url(../images/tab-library-abstract-background-2x.jpeg);
+  }
 
-@media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     height: 216px;
     background-image: url(../images/desc-abstract-background-library-2x.jpeg);
-}
+  }
 }
 .header-container {
-    min-width: 320px;
-    height: 230px;
-    padding-top: 45px;
+  min-width: 320px;
+  height: 230px;
+  padding-top: 45px;
 }
 .header__tabs {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .header__title-panel {
-    display: flex;
+  display: flex;
 }
 .header__logo {
-    display: flex;
+  display: flex;
 }
 .icon {
-    display: block;
-    padding: 0;
-    margin-top: 2px;
-    margin-right: 10px;
+  display: block;
+  padding: 0;
+  margin-top: 2px;
+  margin-right: 10px;
 }
 .logo-title {
   font-style: normal;
@@ -58,15 +58,15 @@
   }
 }
 .header__nav {
-    display: flex;
+  display: flex;
 }
 .header__controls {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 .header__controls-item {
-    font-family: 'Roboto';
+  font-family: 'Roboto';
   text-transform: uppercase;
   font-style: normal;
   font-weight: 500;
@@ -82,31 +82,33 @@
 }
 
 .current {
-    position: relative;
-  }
-  .current::after {
-    content: '';
-    position: absolute;
-    width: 102%;
-    height: 3px;
-    left: 0;
-    bottom: -2px;
-    background: #ff6b08;
-    border-radius: 2px;
-  }
+  position: relative;
+}
+.current::after {
+  content: '';
+  position: absolute;
+  width: 102%;
+  height: 3px;
+  left: 0;
+  bottom: -2px;
+  background: #ff6b08;
+  border-radius: 2px;
+}
 
 .header__form-wrap {
-    margin-top: 44px;
+  margin-top: 44px;
 }
 .header__form {
-    position: relative;
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.14;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.14;
 }
 .header__form-input {
-    width: 280px;
+  width: 280px;
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 14px;
@@ -130,7 +132,7 @@
   }
 }
 .header__search-btn {
-// padding: 3px;
+  // padding: 3px;
   position: absolute;
   right: 31%;
   bottom: 3px;
@@ -154,38 +156,37 @@
   padding-top: 52px;
 }
 .header__library-buttons-item:first-child {
-    margin-right: 20px;
+  margin-right: 20px;
   @media screen and (min-width: 768px) {
     margin-right: 32px;
   }
   @media screen and (min-width: 1024px) {
     margin-right: 16px;
-}
+  }
 }
 .library-buttons-button {
-    width: 129.5px;
-    height: 44px;
-  
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-transform: uppercase;
-    background-color: inherit;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    @media screen and (min-width: 768px) {
-      width: 152px;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 148px;
-    }
+  width: 129.5px;
+  height: 44px;
 
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  background-color: inherit;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 148px;
+  }
 }
 .library-buttons-button:hover,
 .library-buttons-button:focus {
-    background-color: #ff6b08;
-    border: 1px solid #ff6b08;
+  background-color: #ff6b08;
+  border: 1px solid #ff6b08;
 }
