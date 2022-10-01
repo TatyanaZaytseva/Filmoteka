@@ -1,16 +1,32 @@
 .theme-switch__control {
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  transform: translate3d(10%, 0%, 0);
+  transform: translate3d(60%, -90%, 0);
+
+  @media screen and (min-width: 480px) {
+    transform: translate3d(70%, -90%, 0);
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: translate3d(82%, -200%, 0);
+  }
+
+  @media screen and (min-width: 1280px) {
+    transform: translate3d(79%, -200%, 0);
+  }
+
   &:before {
     content: 'DARK';
-    font-size: 12px;
+    @include font(500, 12px, 1.16, null);
+    font-family: inherit;
+    text-transform: uppercase;
     color: $mainTextColor;
   }
   &:after {
     content: 'LIGHT';
-    font-size: 12px;
+    @include font(500, 12px, 1.16, null);
+    font-family: inherit;
+    text-transform: uppercase;
     color: $descrTextColor;
   }
 }

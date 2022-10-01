@@ -6,7 +6,15 @@ const Theme = {
 };
 
 refs.toggle.addEventListener('change', onChecked);
-checkLocalStorage();
+
+changePagesTheme();
+
+function changePagesTheme() {
+  const pageName = document.location.pathname;
+  if (pageName.includes('index') || pageName.includes('library.html')) {
+    checkLocalStorage();
+  }
+}
 
 function checkLocalStorage() {
   if (localStorage.getItem('checked') === 'true') {
@@ -14,7 +22,7 @@ function checkLocalStorage() {
     document.body.classList.add('dark-theme');
     refs.tuiPage.classList.add('dark-theme');
     refs.footer.classList.add('dark-theme');
-    refs.movieModal.classList.add('dark-theme');
+    // refs.movieModal.classList.add('dark-theme');
   } else {
     refs.toggle.checked = false;
     document.body.classList.add('light-theme');
@@ -32,8 +40,8 @@ function onChecked(event) {
     refs.tuiPage.classList.add('dark-theme');
     refs.footer.classList.remove('light-theme');
     refs.footer.classList.add('dark-theme');
-    refs.movieModal.classList.remove('light-theme');
-    refs.movieModal.classList.add('dark-theme');
+    // refs.movieModal.classList.remove('light-theme');
+    // refs.movieModal.classList.add('dark-theme');
 
     localStorage.setItem('Theme', 'DARK');
     localStorage.setItem('checked', 'true');
@@ -47,8 +55,8 @@ function onChecked(event) {
   refs.tuiPage.classList.add('light-theme');
   refs.footer.classList.remove('dark-theme');
   refs.footer.classList.add('light-theme');
-  refs.movieModal.classList.remove('dark-theme');
-  refs.movieModal.classList.add('light-theme');
+  // refs.movieModal.classList.remove('dark-theme');
+  // refs.movieModal.classList.add('light-theme');
 
   localStorage.setItem('Theme', 'LIGHT');
   localStorage.setItem('checked', 'false');
