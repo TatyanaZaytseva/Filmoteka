@@ -5,21 +5,17 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-
-// refs.toggle.addEventListener('change', onChecked);
-checkLocalStorage();
-
 refs.toggle.addEventListener('change', onChecked);
-
+// checkLocalStorage();
 changePagesTheme();
 
 function changePagesTheme() {
   const pageName = document.location.pathname;
-  if (pageName.includes('index') || pageName.includes('library.html')) {
+  console.log(pageName);
+  if (pageName.includes('index') || pageName.includes('library')) {
     checkLocalStorage();
   }
 }
-
 
 function checkLocalStorage() {
   if (localStorage.getItem('checked') === 'true') {
@@ -29,11 +25,11 @@ function checkLocalStorage() {
     refs.footer.classList.add('dark-theme');
     // refs.movieModal.classList.add('dark-theme');
   } else {
-    // refs.toggle.checked = false;
+    refs.toggle.checked = false;
     document.body.classList.add('light-theme');
     refs.tuiPage.classList.add('light-theme');
     refs.footer.classList.add('light-theme');
-    // refs.movieModal.classList.add('light-theme');
+    refs.movieModal.classList.add('light-theme');
   }
 }
 

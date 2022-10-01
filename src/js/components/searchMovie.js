@@ -1,20 +1,16 @@
 import { fetchFilm } from '../fetchFilm';
 import { renderMovies } from './movie-list';
 
-
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-
 
 const searchFormInput = document.querySelector('.header__form-input');
 const searchBtn = document.querySelector('.header__search-btn');
 const moviesWrapper = document.querySelector('.movie-list');
 const errorMessage = document.querySelector('.error__message');
 
-
 // searchBtn.addEventListener("click", onSearchBtnClick)
 
 searchBtn.addEventListener('click', onSearchBtnClick);
-
 
 async function onSearchBtnClick(e) {
   e.preventDefault();
@@ -28,15 +24,14 @@ async function onSearchBtnClick(e) {
   try {
     const { results } = await fetchFilm(inputValue);
 
-
     if (results.length === 0) {
       errorMessage.style.display = 'block';
     } else {
-
-    Loading.dots({
-      svgSize: '150px',
-      svgColor: '#ff6b08',
-    });
+      Loading.dots({
+        svgSize: '150px',
+        svgColor: '#ff6b08',
+      });
+    }
     if (results.length === 0) {
       errorMessage.style.display = 'block';
     } else {
@@ -56,7 +51,6 @@ async function onSearchBtnClick(e) {
 function cleanGallery() {
   moviesWrapper.innerHTML = '';
 }
-
 
 // import { fetchFilm } from "../fetchFilm"
 // import { renderMovies } from "./movie-list";
@@ -141,5 +135,3 @@ function cleanGallery() {
 //         .join('')
 //     moviesWrapper.innerHTML += markup
 // }
-
-
