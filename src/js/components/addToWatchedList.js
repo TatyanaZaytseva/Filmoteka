@@ -5,7 +5,7 @@ let btn;
 export function addToWatchedBtnClickListener(movie) {
   btn = document.querySelector('.add-to-watched');
   if (checkMovieIsInList(movie.id)) {
-    btn.textContent = 'remove from Queue';
+    btn.textContent = 'remove from Watched';
   }
   btn.addEventListener('click', () => {
     onAddToWatchedBtnClick(movie);
@@ -13,12 +13,12 @@ export function addToWatchedBtnClickListener(movie) {
 }
 
 function onAddToWatchedBtnClick(movie) {
-  if (btn.textContent === 'remove from Queue') {
+  if (btn.textContent === 'remove from Watched') {
     removeInLocalStorage(movie);
-    btn.textContent = 'add to Queue';
+    btn.textContent = 'add to Watched';
   } else {
     setInLocalStorage(movie);
-    btn.textContent = 'remove from Queue';
+    btn.textContent = 'remove from Watched';
   }
 }
 
