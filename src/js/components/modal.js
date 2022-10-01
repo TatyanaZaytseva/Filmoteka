@@ -25,10 +25,10 @@ refs.movieModalClose.addEventListener('click', () => {
   refs.modal.classList.add('visually-hidden');
 });
 
-refs.modal.addEventListener('click', () => {
-  //тут повинна бути перевірка: якщо event.target не модалка, то тоді код нижче
-  refs.modal.classList.add('visually-hidden');
-});
+// refs.modal.addEventListener('click', () => {
+//   //тут повинна бути перевірка: якщо event.target не модалка, то тоді код нижче
+//   refs.modal.classList.add('visually-hidden');
+// });
 
 document.addEventListener('keyup', event => {
   if (
