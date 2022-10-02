@@ -15,7 +15,7 @@ export const renderCard = (movie, genres) => {
           <h2 class="movie-card__title">${movie.title}</h2>
           <div class="movie-card__info">
             ${currentGenres.join(', ')} | ${
-    movie.release_date ? `| ${movie.release_date.substring(0, 4)}` : ''
+    movie.release_date ? ` ${movie.release_date.substring(0, 4)}` : ''
   }
           </div>
         </div>
