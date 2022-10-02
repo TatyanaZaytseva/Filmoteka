@@ -9,8 +9,18 @@
 @import './components/container';
 @import './components/section';
 @import './components/movie-card';
+@import './components/scroll-up-btn';
+@import './components/switch-theme';
+
+@import './components/pagination';
+@import './components/button';
+@import './components/movie-modal';
 
 @import './layouts/header';
+// @import './layouts/header-library';
 @import './layouts/section-library';
 @import './layouts/footer';
 @import './layouts/movie-list';
+@import './layouts/team-modal';
+
+@import './components/libraryCard';

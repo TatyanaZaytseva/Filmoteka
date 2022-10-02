@@ -7,18 +7,16 @@ export const renderCard = (movie, genres) => {
 
   return `
     <li class="movie-card">
-      <article class="movie-card__article">
-        <a class="movie-card__link" href="">
-          <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${
+      <article class="movie-card__article movie-item-js" data-id="${movie.id}">
+        <img width="440" height="660" class="movie-card__img" src="${IMAGE_URL}${
     movie.poster_path
   }">
-        </a>
         <div class="movie-card__header">
-          <a href="">
-            <h2 class="movie-card__title">${movie.title}</h2>
-          </a>
+          <h2 class="movie-card__title">${movie.title}</h2>
           <div class="movie-card__info">
-            ${currentGenres.join(', ')} | ${movie.release_date.substring(0, 4)}
+            ${currentGenres.join(', ')} | ${
+    movie.release_date ? `| ${movie.release_date.substring(0, 4)}` : ''
+  }
           </div>
         </div>
       </article>
