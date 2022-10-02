@@ -1,17 +1,9 @@
 import Pagination from 'tui-pagination';
-// import { функция фильмов на главной } from '';
-// import { функция поиска} from ''
-// import { функция поднятие вверх } from ''
+import 'tui-pagination/dist/tui-pagination.css';
+import { renderMostPopularMovies, renderMovies } from './movie-list';
+import { fetchSearchResults } from './searchMovie';
 
-export const paginationInit = {
-  startPage: 1,
-  searchType: '',
-  pagination: null,
-};
-
-// const pagin = document.querySelector('#pagination');
-
-export const createPagination = (page, itemsPerPage, totalItems) => {
+export const createPagination = (page, totalItems, itemsPerPage = 20 ) => {
   const options = {
     totalItems,
     itemsPerPage,
@@ -37,36 +29,20 @@ export const createPagination = (page, itemsPerPage, totalItems) => {
     },
   };
 
-  const pagination = new Pagination(pagin, options);
-  paginationInit.pagination = pagination;
+  const pagination = new Pagination('pagination', options);
 
-  pagination.on('afterMove', async event => {
-    const currentPage = event.page;
-    if (paginationInit.searchType === 'popular films') {
-      fetchMoves(currentPage);
-      // pageUp();
-    }
-    if (paginationInit.searchType === 'search films') {
-      fetchFilms(currentPage);
-      // pageUp();
+  pagination.on('afterMove', ({ page }) => {
+    switch (document.body.dataset.paginationMode) {
+      case 'search':
+        fetchSearchResults(null, page);
+        break;
+      default:
+        renderMostPopularMovies(page);
     }
   });
   return pagination;
 };
-// Проверка функции вручную (потом удалить)
-// createPagination(1, 1, 25);
 
-// добавить в функции
-// import { createPagination, paginationInit } from './pagination';
+const pagination = createPagination(1, 0);
 
-// функция фильмов на главной
-// paginationInit.searchType = 'search films';
-// const totalPages = data.total_pages;
-// const itemsPerPage = data.results.length;
-// createPagination(page, itemsPerPage, totalPages);
-
-// функция поиска
-// paginationInit.searchType = 'popular films';
-// const totalPages = r.data.total_pages;
-// const itemsPerPage = r.data.results.length;
-// createPagination(page, itemsPerPage, totalPages);
+export { pagination };

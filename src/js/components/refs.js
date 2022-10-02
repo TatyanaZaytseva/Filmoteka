@@ -10,7 +10,7 @@ export const refs = {
   queueBtn: document.querySelector('.queue'),
   modal: document.querySelector('.modal-overlay'),
   // addToWatchedBtn: document.querySelector('.add-to-watched'),
-  movieList: document.querySelector('.movie-list'),
+  movieList: document.querySelector('.movie-list-js'),
   movieModal: document.querySelector('.movie-modal'),
   movieModalWrapper: document.querySelector('.movie-modal-wrapper-js'),
   movieModalClose: document.querySelector('.movie-modal-close-js'),

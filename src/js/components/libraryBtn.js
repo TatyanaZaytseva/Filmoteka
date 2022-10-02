@@ -24,7 +24,7 @@ function onClickBtnWatched() {
     const renderWatchedFilms = watchedFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
-          <article class="library-card__article library-item-js" data-id="${id}">
+          <article class="library-card__article movie-item-js" data-id="${id}">
             <img width="440" height="660" class="library-card__img" src="${IMAGE_URL}${poster_path}">
             <div class="library-card__header">
               <h2 class="library-card__title">${title}</h2>
@@ -57,7 +57,7 @@ function onClickBtnQueue() {
     const renderQueueFilms = queueFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
-          <article class="library-card__article library-item-js" data-id="${id}">
+          <article class="library-card__article movie-item-js" data-id="${id}">
             <img width="440" height="660" class="library-card__img" src="${IMAGE_URL}${poster_path}">
             <div class="library-card__header">
               <h2 class="library-card__title">${title}</h2>
