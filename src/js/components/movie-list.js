@@ -16,10 +16,14 @@ export const renderMovies = movies => {
   });
 };
 
-export const renderMostPopularMovies = () => {
+const renderMostPopularMovies = () => {
   getMostPopularMovies().then(({ results }) => {
     renderMovies(results);
   });
 };
+
+if (moviesWrapper) {
+  renderMostPopularMovies();
+}
 
 export { moviesWrapper };

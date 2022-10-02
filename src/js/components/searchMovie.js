@@ -10,7 +10,10 @@ const errorMessage = document.querySelector('.error__message');
 
 // searchBtn.addEventListener("click", onSearchBtnClick)
 
-searchBtn.addEventListener('click', onSearchBtnClick);
+if (searchBtn) {
+  searchBtn.addEventListener('click', onSearchBtnClick);
+}
+
 
 async function onSearchBtnClick(e) {
   e.preventDefault();
