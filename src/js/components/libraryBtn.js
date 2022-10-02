@@ -1,11 +1,13 @@
 import { refs } from './refs.js';
 import { STORAGE_KEY_WATCHED } from '../globals.js';
 import { STORAGE_KEY_QUEUE } from '../globals.js';
-import { renderMovieDetails } from '../templates/movie-details.js';
-import { renderCard } from '../templates/movie-card.js';
 import { IMAGE_URL } from '../globals';
-import { getGenres } from '../http/getGenres';
-import { moviesWrapper, renderMovies } from './movie-list';
+
+if (refs.watchedBtn.classList.contains('button__active')) {
+  onClickBtnWatched();
+} else {
+  onClickBtnQueue();
+}
 
 if (refs.watchedBtn) {
   refs.watchedBtn.addEventListener('click', onClickBtnWatched);
@@ -15,8 +17,10 @@ if (refs.queueBtn) {
   refs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
 
-
 function onClickBtnWatched() {
+  refs.queueBtn.classList.remove('button__active');
+  refs.watchedBtn.classList.add('button__active');
+
   const watchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_WATCHED));
 
   if (watchedFilms) {
@@ -34,7 +38,9 @@ function onClickBtnWatched() {
                     .map(item => item.name)
                     .join(' ')} | ${release_date.substring(0, 4)}
                 </div>
-                <div class="library-card__rating">${vote_average}</div>
+                <div class="library-card__rating">${vote_average.toFixed(
+                  1
+                )}</div>
               </div>
             </div>
           </article>
@@ -51,6 +57,9 @@ function onClickBtnWatched() {
 }
 
 function onClickBtnQueue() {
+  refs.watchedBtn.classList.remove('button__active');
+  refs.queueBtn.classList.add('button__active');
+
   const queueFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_QUEUE));
 
   if (queueFilms) {
@@ -67,7 +76,9 @@ function onClickBtnQueue() {
                     .map(item => item.name)
                     .join(' ')} | ${release_date.substring(0, 4)}
                 </div>
-                <div class="library-card__rating">${vote_average}</div>
+                <div class="library-card__rating">${vote_average.toFixed(
+                  1
+                )}</div>
               </div>
             </div>
           </article>
