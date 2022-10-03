@@ -3,14 +3,13 @@ import { STORAGE_KEY_WATCHED } from '../globals.js';
 import { STORAGE_KEY_QUEUE } from '../globals.js';
 import { IMAGE_URL } from '../globals';
 
-if (refs.watchedBtn.classList.contains('button__active')) {
-  onClickBtnWatched();
-} else {
-  onClickBtnQueue();
-}
-
 if (refs.watchedBtn) {
   refs.watchedBtn.addEventListener('click', onClickBtnWatched);
+  if (refs.watchedBtn.classList.contains('button__active')) {
+    onClickBtnWatched();
+  } else {
+    onClickBtnQueue();
+  }
 }
 
 if (refs.queueBtn) {
