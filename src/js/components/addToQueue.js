@@ -1,5 +1,6 @@
 import { STORAGE_KEY_QUEUE } from '../globals';
 import { refs } from './refs';
+import { onClickBtnQueue } from './libraryBtn';
 
 let btn;
 
@@ -46,6 +47,9 @@ function setInLocalStorage(movie) {
     parsedMovies.push(movie);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(parsedMovies));
   }
+  if (refs.queueBtn) {
+    onClickBtnQueue();
+  }
 }
 
 function removeInLocalStorage(movie) {
@@ -60,6 +64,9 @@ function removeInLocalStorage(movie) {
   if (index !== -1) {
     const newMovies = parsedMovies.splice(index, 1);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(parsedMovies));
+  }
+  if (refs.queueBtn) {
+    onClickBtnQueue();
   }
   return;
 }
