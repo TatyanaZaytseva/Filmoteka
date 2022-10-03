@@ -2,43 +2,43 @@ import { fetchFilm } from '../fetchFilm';
 import { renderMovies } from './movie-list';
 
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { pagination } from './pagination';
 
 const searchFormInput = document.querySelector('.header__form-input');
 const searchBtn = document.querySelector('.header__search-btn');
 const moviesWrapper = document.querySelector('.movie-list');
 const errorMessage = document.querySelector('.error__message');
 
+let isNewSearch = true;
+
 // searchBtn.addEventListener("click", onSearchBtnClick)
 
-searchBtn.addEventListener('click', onSearchBtnClick);
+if (searchBtn) {
+  searchBtn.addEventListener('click', onSearchBtnClick);
+}
 
-async function onSearchBtnClick(e) {
-  e.preventDefault();
-  cleanGallery();
-  const inputValue = searchFormInput.value.trim();
+let lastInputValue;
 
-  if (inputValue === '') {
-    return;
-  }
-
+export async function fetchSearchResults(inputValue, page) {
   try {
-    const { results } = await fetchFilm(inputValue);
-
-    if (results.length === 0) {
-      errorMessage.style.display = 'block';
-    } else {
-      Loading.dots({
+    Loading.dots({
         svgSize: '150px',
         svgColor: '#ff6b08',
-      });
-    }
+    });
+    const { results, total_results } = await fetchFilm(inputValue || lastInputValue, page);
+    Loading.remove(400);
+
     if (results.length === 0) {
       errorMessage.style.display = 'block';
     } else {
-      Loading.remove(400);
-
       errorMessage.style.display = 'none';
       renderMovies(results);
+
+      if (isNewSearch) {
+        isNewSearch = false;
+        pagination._paginate(1);
+        pagination.reset(total_results);
+      }
     }
   } catch {
     errorMessage.style.display = 'block';
@@ -46,6 +46,21 @@ async function onSearchBtnClick(e) {
     // decided to avoid input reset. For example, google search doesn't.
     // searchFormInput.value = '';
   }
+}
+
+
+async function onSearchBtnClick(e) {
+  document.body.dataset.paginationMode = 'search';
+  e.preventDefault();
+  cleanGallery();
+  isNewSearch = true;
+  const inputValue = searchFormInput.value.trim();
+
+  if (inputValue === '') {
+    return;
+  }
+  lastInputValue = inputValue;
+  fetchSearchResults(inputValue)
 }
 
 function cleanGallery() {

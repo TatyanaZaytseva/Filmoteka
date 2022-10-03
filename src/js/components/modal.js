@@ -4,22 +4,24 @@ import { addToQueueBtnClickListener } from './addToQueue';
 import { addToWatchedBtnClickListener } from './addToWatchedList';
 import { refs } from './refs';
 
-refs.movieList.addEventListener('click', event => {
-  const movieItem = event.target.closest('.movie-item-js');
+if (refs.movieList) {
+  refs.movieList.addEventListener('click', event => {
+    const movieItem = event.target.closest('.movie-item-js');
 
-  if (!movieItem) {
-    return;
-  }
+    if (!movieItem) {
+      return;
+    }
 
-  getMovieDetails(movieItem.dataset.id).then(movie => {
-    const movieDetailsHtml = renderMovieDetails(movie);
+    getMovieDetails(movieItem.dataset.id).then(movie => {
+      const movieDetailsHtml = renderMovieDetails(movie);
 
-    refs.movieModalWrapper.innerHTML = movieDetailsHtml;
-    refs.modal.classList.remove('visually-hidden');
-    addToWatchedBtnClickListener(movie);
-    addToQueueBtnClickListener(movie);
+      refs.movieModalWrapper.innerHTML = movieDetailsHtml;
+      refs.modal.classList.remove('visually-hidden');
+      addToWatchedBtnClickListener(movie);
+      addToQueueBtnClickListener(movie);
+    });
   });
-});
+}
 
 refs.movieModalClose.addEventListener('click', () => {
   refs.modal.classList.add('visually-hidden');
