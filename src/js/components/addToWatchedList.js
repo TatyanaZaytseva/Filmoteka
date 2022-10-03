@@ -1,4 +1,6 @@
 import { STORAGE_KEY_WATCHED } from '../globals';
+import { onClickBtnWatched } from './libraryBtn';
+import { refs } from './refs';
 
 let btn;
 
@@ -43,6 +45,9 @@ function setInLocalStorage(movie) {
     parsedMovies.push(movie);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(parsedMovies));
   }
+  if (refs.watchedBtn) {
+    onClickBtnWatched();
+  }
 }
 
 function removeInLocalStorage(movie) {
@@ -54,6 +59,9 @@ function removeInLocalStorage(movie) {
   if (index !== -1) {
     const newMovies = parsedMovies.splice(index, 1);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(parsedMovies));
+  }
+  if (refs.watchedBtn) {
+    onClickBtnWatched();
   }
   return;
 }
