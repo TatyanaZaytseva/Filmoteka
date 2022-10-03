@@ -41,8 +41,8 @@ export function onClickBtnWatched() {
     svgSize: '150px',
     svgColor: '#ff6b08',
   });
-  if (watchedFilms) {
-    refs.emptyPage.classList.add('visually-hidden');
+  // console.log(watchedFilms);
+  if (watchedFilms?.length > 0) {
     const renderWatchedFilms = watchedFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
@@ -70,10 +70,12 @@ export function onClickBtnWatched() {
     refs.library.innerHTML = renderWatchedFilms;
     Loading.remove(400);
   } else {
-    Loading.dots({
-      svgSize: '150px',
-      svgColor: '#ff6b08',
-    });
+    // showNoMoviesBlock();
+    // Loading.dots({
+    //   svgSize: '150px',
+    //   svgColor: '#ff6b08',
+    // });
+
     refs.library.innerHTML = '';
     showNoMoviesBlock();
     Loading.remove(400);
@@ -90,7 +92,7 @@ export function onClickBtnQueue() {
     svgSize: '150px',
     svgColor: '#ff6b08',
   });
-  if (queueFilms) {
+  if (queueFilms?.length > 0) {
     const renderQueueFilms = queueFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
@@ -135,14 +137,3 @@ function hideNoMoviesBlock() {
 function showNoMoviesBlock() {
   refs.emptyPage.classList.remove('visually-hidden');
 }
-
-// if (document.title === 'Filmoteka') {
-//   refs.watchedBtn === disabled;
-// }
-// function isLibrary() {
-//   const pageName = document.location.pathname;
-//     if (pageName.includes('library')) {
-//     }
-//   else {
-//  refs.watchedBtn.removeEventListener('click');
-//   refs.queueBtn.removeEventListener('click');}
