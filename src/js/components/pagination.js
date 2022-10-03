@@ -42,7 +42,7 @@ export const createPagination = (page, totalItems, itemsPerPage = 20) => {
           svgColor: '#ff6b08',
         });
         fetchSearchResults(null, page);
-        Loading.remove(400);
+        Loading.remove();
         break;
       default:
         jump('header');
@@ -51,7 +51,7 @@ export const createPagination = (page, totalItems, itemsPerPage = 20) => {
           svgColor: '#ff6b08',
         });
         renderMostPopularMovies(page);
-        Loading.remove(400);
+        Loading.remove();
     }
   });
   return pagination;

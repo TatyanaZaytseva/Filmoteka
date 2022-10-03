@@ -7,7 +7,6 @@ let btn;
 function onAddToQueueBtnClick(movie) {
   // checkMovieIsInList(movie.id);
 
-  // console.log(movieIsInList);
   // if (movieIsInList) {
   //   removeInLocalStorage(movie);
   //   btn.textContent = 'add to Queue';
@@ -31,12 +30,11 @@ function checkMovieIsInList(movieId) {
     return false;
   }
   const movieIsInList = savedMovies.some(({ id }) => id === movieId);
-  console.log(movieIsInList);
+
   return movieIsInList;
 }
 
 function setInLocalStorage(movie) {
-  // console.log(movie);
   const savedMovies = localStorage.getItem(STORAGE_KEY_QUEUE);
   if (!movie) return;
   if (!savedMovies) {
@@ -55,11 +53,9 @@ function setInLocalStorage(movie) {
 function removeInLocalStorage(movie) {
   const savedMovies = localStorage.getItem(STORAGE_KEY_QUEUE);
   const parsedMovies = JSON.parse(savedMovies);
-  console.log(parsedMovies);
   const MOVIE_ID = movie.id;
   // const film = parsedMovies.find(movie => movie.id === MOVIE_ID);
   // const isFilmExist = parsedMovies.some(movie => movie.id === MOVIE_ID);
-  // // console.log(isFilmExist);
   const index = parsedMovies.findIndex(movie => movie.id === MOVIE_ID);
   if (index !== -1) {
     const newMovies = parsedMovies.splice(index, 1);

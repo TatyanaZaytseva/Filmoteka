@@ -5,14 +5,7 @@ import { IMAGE_URL } from '../globals';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 if (refs.watchedBtn) {
-  refs.watchedBtn.addEventListener('click', () => {
-    // Loading.dots({
-    //   svgSize: '150px',
-    //   svgColor: '#ff6b08',
-    // });
-    onClickBtnWatched();
-    // Loading.remove(400);
-  });
+  refs.watchedBtn.addEventListener('click', onClickBtnWatched);
   if (refs.watchedBtn.classList.contains('button__active')) {
     onClickBtnWatched();
   } else {
@@ -21,14 +14,7 @@ if (refs.watchedBtn) {
 }
 
 if (refs.queueBtn) {
-  refs.queueBtn.addEventListener('click', () => {
-    // Loading.dots({
-    //   svgSize: '150px',
-    //   svgColor: '#ff6b08',
-    // });
-    onClickBtnQueue();
-    // Loading.remove(400);
-  });
+  refs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
 
 export function onClickBtnWatched() {
@@ -68,7 +54,7 @@ export function onClickBtnWatched() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderWatchedFilms;
-    Loading.remove(400);
+    Loading.remove();
   } else {
     Loading.dots({
       svgSize: '150px',
@@ -76,7 +62,7 @@ export function onClickBtnWatched() {
     });
     refs.library.innerHTML = '';
     showNoMoviesBlock();
-    Loading.remove(400);
+    Loading.remove();
   }
 }
 
@@ -116,7 +102,7 @@ export function onClickBtnQueue() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderQueueFilms;
-    Loading.remove(400);
+    Loading.remove();
   } else {
     Loading.dots({
       svgSize: '150px',
@@ -124,7 +110,7 @@ export function onClickBtnQueue() {
     });
     refs.library.innerHTML = '';
     showNoMoviesBlock();
-    Loading.remove(400);
+    Loading.remove();
   }
 }
 

@@ -30,7 +30,6 @@ function checkMovieIsInList(movieId) {
     return false;
   }
   const movieIsInList = savedMovies.some(({ id }) => id === movieId);
-  console.log(movieIsInList);
   return movieIsInList;
 }
 
@@ -53,7 +52,6 @@ function setInLocalStorage(movie) {
 function removeInLocalStorage(movie) {
   const savedMovies = localStorage.getItem(STORAGE_KEY_WATCHED);
   const parsedMovies = JSON.parse(savedMovies);
-  console.log(parsedMovies);
   const MOVIE_ID = movie.id;
   const index = parsedMovies.findIndex(movie => movie.id === MOVIE_ID);
   if (index !== -1) {

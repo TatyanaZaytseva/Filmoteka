@@ -147,16 +147,54 @@ body.light-theme .movie-card__title {
   }
 }
 
-// body.dark-theme .tui-is-disabled,
-// body.dark-theme .tui-last-child,
-// body.dark-theme .tui-page-btn,
-// body.dark-theme .tui-last,
-body.dark-theme .tui-pagination {
+.team-modal.dark-theme,
+.team-modal.dark-theme .team-modal-close-btn {
+  background-color: $darkBodyColor;
+}
+
+.team-modal.dark-theme h2,
+.team-modal.dark-theme p {
   color: $mainTextColor;
 }
 
-// body.dark-theme .tui-is-selected {
-//   color: mainTextColor;
-//   cursor: default;
-//   background: $descrTextColor;
-// }
+.team-modal.dark-theme h3 {
+  color: $descrTextColor;
+}
+
+.team-modal.dark-theme .team-modal__list-item {
+  border: 1px solid $mainTextColor;
+}
+
+.team-modal.dark-theme .icon--close {
+  stroke: $mainTextColor;
+}
+
+.team-modal.dark-theme .footer__sl-svg {
+  fill: $mainTextColor;
+
+  &:hover,
+  &:focus {
+    fill: $descrTextColor;
+  }
+}
+
+.tui-pagination.dark-theme {
+  background-color: $darkBodyColor;
+}
+
+.tui-pagination.dark-theme .tui-page-btn {
+  color: $mainTextColor;
+}
+
+.tui-pagination.dark-theme .tui-ico-ellip {
+  background-color: $mainTextColor;
+}
+
+.tui-pagination.dark-theme .tui-next,
+.tui-pagination.dark-theme .tui-prev {
+  background-color: rgba(255, 255, 255, 0.45);
+  &:hover,
+  &:focus {
+    background-color: $mainTextColor;
+  }
+}

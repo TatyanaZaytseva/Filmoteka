@@ -27,7 +27,7 @@ export const renderMostPopularMovies = (page = 1) => {
       svgColor: '#ff6b08',
     });
     renderMovies(results, total_results);
-    Loading.remove(400);
+    Loading.remove();
 
     if (isFirstLoad) {
       pagination.reset(total_results);

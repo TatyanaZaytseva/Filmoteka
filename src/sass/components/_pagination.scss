@@ -34,7 +34,8 @@
   border-radius: 5px;
   border: 0;
   color: var(--second-color);
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #ff6b08;
     color: #ffffff;
   }
@@ -51,6 +52,10 @@
 .tui-prev,
 .tui-next {
   background-color: transparent;
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .tui-first,
