@@ -151,10 +151,9 @@ body.light-theme .movie-card__title {
 // body.dark-theme .tui-last-child,
 // body.dark-theme .tui-page-btn,
 // body.dark-theme .tui-last,
-// body.dark-theme .tui-pagination {
-//   background-color: #333;
-//   color: $mainTextColor;
-// }
+body.dark-theme .tui-pagination {
+  color: $mainTextColor;
+}
 
 // body.dark-theme .tui-is-selected {
 //   color: mainTextColor;
