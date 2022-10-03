@@ -41,7 +41,7 @@ export async function fetchSearchResults(inputValue, page) {
       svgSize: '150px',
       svgColor: '#ff6b08',
     });
-    Loading.remove(400);
+    Loading.remove();
   } catch {
     errorMessage.style.display = 'block';
   } finally {
