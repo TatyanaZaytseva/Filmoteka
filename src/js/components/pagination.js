@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 import { renderMostPopularMovies, renderMovies } from './movie-list';
 import { fetchSearchResults } from './searchMovie';
 
