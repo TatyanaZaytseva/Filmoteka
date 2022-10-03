@@ -17,7 +17,7 @@ function onClickStudentsModal() {
     window.addEventListener('keydown', onEscKeyPress);
   }
   if (refs.studentsModal.classList.contains('visually-hidden')) {
-    enableBodyScroll(refs.studentsModal);
+    // enableBodyScroll(refs.studentsModal);
     window.removeEventListener('keydown', onEscKeyPress);
   }
 }
