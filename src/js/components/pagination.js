@@ -2,8 +2,10 @@ import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { renderMostPopularMovies, renderMovies } from './movie-list';
 import { fetchSearchResults } from './searchMovie';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import jump from 'jump.js';
 
-export const createPagination = (page, totalItems, itemsPerPage = 20 ) => {
+export const createPagination = (page, totalItems, itemsPerPage = 20) => {
   const options = {
     totalItems,
     itemsPerPage,
@@ -34,10 +36,22 @@ export const createPagination = (page, totalItems, itemsPerPage = 20 ) => {
   pagination.on('afterMove', ({ page }) => {
     switch (document.body.dataset.paginationMode) {
       case 'search':
+        jump('header');
+        Loading.dots({
+          svgSize: '150px',
+          svgColor: '#ff6b08',
+        });
         fetchSearchResults(null, page);
+        Loading.remove(400);
         break;
       default:
+        jump('header');
+        Loading.dots({
+          svgSize: '150px',
+          svgColor: '#ff6b08',
+        });
         renderMostPopularMovies(page);
+        Loading.remove(400);
     }
   });
   return pagination;

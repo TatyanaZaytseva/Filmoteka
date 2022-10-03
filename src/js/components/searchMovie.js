@@ -1,6 +1,5 @@
 import { fetchFilm } from '../fetchFilm';
 import { renderMovies } from './movie-list';
-
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { pagination } from './pagination';
 
@@ -21,12 +20,10 @@ let lastInputValue;
 
 export async function fetchSearchResults(inputValue, page) {
   try {
-    Loading.dots({
-        svgSize: '150px',
-        svgColor: '#ff6b08',
-    });
-    const { results, total_results } = await fetchFilm(inputValue || lastInputValue, page);
-    Loading.remove(400);
+    const { results, total_results } = await fetchFilm(
+      inputValue || lastInputValue,
+      page
+    );
 
     if (results.length === 0) {
       errorMessage.style.display = 'block';
@@ -40,6 +37,11 @@ export async function fetchSearchResults(inputValue, page) {
         pagination.reset(total_results);
       }
     }
+    Loading.dots({
+      svgSize: '150px',
+      svgColor: '#ff6b08',
+    });
+    Loading.remove(400);
   } catch {
     errorMessage.style.display = 'block';
   } finally {
@@ -47,7 +49,6 @@ export async function fetchSearchResults(inputValue, page) {
     // searchFormInput.value = '';
   }
 }
-
 
 async function onSearchBtnClick(e) {
   document.body.dataset.paginationMode = 'search';
@@ -60,7 +61,7 @@ async function onSearchBtnClick(e) {
     return;
   }
   lastInputValue = inputValue;
-  fetchSearchResults(inputValue)
+  fetchSearchResults(inputValue);
 }
 
 function cleanGallery() {
