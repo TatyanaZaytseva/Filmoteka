@@ -54,16 +54,12 @@ export function onClickBtnWatched() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderWatchedFilms;
+    refs.tuiPage.classList.remove('visually-hidden');
     Loading.remove();
   } else {
-    // showNoMoviesBlock();
-    // Loading.dots({
-    //   svgSize: '150px',
-    //   svgColor: '#ff6b08',
-    // });
-
     refs.library.innerHTML = '';
     showNoMoviesBlock();
+    refs.tuiPage.classList.add('visually-hidden');
     Loading.remove();
   }
 }
@@ -104,14 +100,12 @@ export function onClickBtnQueue() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderQueueFilms;
+    refs.tuiPage.classList.remove('visually-hidden');
     Loading.remove();
   } else {
-    Loading.dots({
-      svgSize: '150px',
-      svgColor: '#ff6b08',
-    });
     refs.library.innerHTML = '';
     showNoMoviesBlock();
+    refs.tuiPage.classList.add('visually-hidden');
     Loading.remove();
   }
 }

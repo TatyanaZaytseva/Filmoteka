@@ -1,3 +1,4 @@
+import { refs } from './refs';
 import { fetchFilm } from '../fetchFilm';
 import { renderMovies } from './movie-list';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
@@ -28,10 +29,12 @@ export async function fetchSearchResults(inputValue, page) {
     if (results.length === 0) {
       errorMessage.style.display = 'block';
       showNoMoviesBlock();
+      refs.tuiPage.classList.add('visually-hidden');
     } else {
       errorMessage.style.display = 'none';
       hideNoMoviesBlock();
       renderMovies(results);
+      refs.tuiPage.classList.remove('visually-hidden');
 
       if (isNewSearch) {
         isNewSearch = false;
@@ -44,8 +47,9 @@ export async function fetchSearchResults(inputValue, page) {
       svgColor: '#ff6b08',
     });
     Loading.remove();
-  } catch {
+  } catch (error) {
     errorMessage.style.display = 'block';
+    refs.tuiPage.classList.add('visually-hidden');
   } finally {
     // decided to avoid input reset. For example, google search doesn't.
     // searchFormInput.value = '';
@@ -60,6 +64,9 @@ async function onSearchBtnClick(e) {
   const inputValue = searchFormInput.value.trim();
 
   if (inputValue === '') {
+    errorMessage.style.display = 'block';
+    showNoMoviesBlock();
+    refs.tuiPage.classList.add('visually-hidden');
     return;
   }
   lastInputValue = inputValue;

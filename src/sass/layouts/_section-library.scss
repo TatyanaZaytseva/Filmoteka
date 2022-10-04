@@ -24,6 +24,13 @@
 .empty-page {
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  // height: 100%;
+  @include tablet {
+    width: 95%;
+  }
+
+  @include desktop {
+    width: 65%;
+  }
 }
