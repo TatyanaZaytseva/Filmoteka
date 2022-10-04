@@ -1,26 +1,34 @@
 import { refs } from './refs.js';
 import { STORAGE_KEY_WATCHED } from '../globals.js';
 import { STORAGE_KEY_QUEUE } from '../globals.js';
-import { renderMovieDetails } from '../templates/movie-details.js';
-import { renderCard } from '../templates/movie-card.js';
 import { IMAGE_URL } from '../globals';
-import { getGenres } from '../http/getGenres';
-import { moviesWrapper, renderMovies } from './movie-list';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 if (refs.watchedBtn) {
   refs.watchedBtn.addEventListener('click', onClickBtnWatched);
+  if (refs.watchedBtn.classList.contains('button__active')) {
+    onClickBtnWatched();
+  } else {
+    onClickBtnQueue();
+  }
 }
 
 if (refs.queueBtn) {
   refs.queueBtn.addEventListener('click', onClickBtnQueue);
 }
 
+export function onClickBtnWatched() {
+  refs.queueBtn.classList.remove('button__active');
+  refs.watchedBtn.classList.add('button__active');
 
-function onClickBtnWatched() {
   const watchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_WATCHED));
 
-  if (watchedFilms) {
-    refs.emptyPage.classList.add('visually-hidden');
+  Loading.dots({
+    svgSize: '150px',
+    svgColor: '#ff6b08',
+  });
+  // console.log(watchedFilms);
+  if (watchedFilms?.length > 0) {
     const renderWatchedFilms = watchedFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
@@ -34,7 +42,9 @@ function onClickBtnWatched() {
                     .map(item => item.name)
                     .join(' ')} | ${release_date.substring(0, 4)}
                 </div>
-                <div class="library-card__rating">${vote_average}</div>
+                <div class="library-card__rating">${vote_average.toFixed(
+                  1
+                )}</div>
               </div>
             </div>
           </article>
@@ -44,16 +54,31 @@ function onClickBtnWatched() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderWatchedFilms;
+    Loading.remove();
   } else {
+    // showNoMoviesBlock();
+    // Loading.dots({
+    //   svgSize: '150px',
+    //   svgColor: '#ff6b08',
+    // });
+
     refs.library.innerHTML = '';
     showNoMoviesBlock();
+    Loading.remove();
   }
 }
 
-function onClickBtnQueue() {
+export function onClickBtnQueue() {
+  refs.watchedBtn.classList.remove('button__active');
+  refs.queueBtn.classList.add('button__active');
+
   const queueFilms = JSON.parse(localStorage.getItem(STORAGE_KEY_QUEUE));
 
-  if (queueFilms) {
+  Loading.dots({
+    svgSize: '150px',
+    svgColor: '#ff6b08',
+  });
+  if (queueFilms?.length > 0) {
     const renderQueueFilms = queueFilms
       .map(({ title, id, poster_path, release_date, genres, vote_average }) => {
         return `<li class="library-card">
@@ -67,7 +92,9 @@ function onClickBtnQueue() {
                     .map(item => item.name)
                     .join(' ')} | ${release_date.substring(0, 4)}
                 </div>
-                <div class="library-card__rating">${vote_average}</div>
+                <div class="library-card__rating">${vote_average.toFixed(
+                  1
+                )}</div>
               </div>
             </div>
           </article>
@@ -77,9 +104,15 @@ function onClickBtnQueue() {
 
     hideNoMoviesBlock();
     refs.library.innerHTML = renderQueueFilms;
+    Loading.remove();
   } else {
+    Loading.dots({
+      svgSize: '150px',
+      svgColor: '#ff6b08',
+    });
     refs.library.innerHTML = '';
     showNoMoviesBlock();
+    Loading.remove();
   }
 }
 
@@ -90,14 +123,3 @@ function hideNoMoviesBlock() {
 function showNoMoviesBlock() {
   refs.emptyPage.classList.remove('visually-hidden');
 }
-
-// if (document.title === 'Filmoteka') {
-//   refs.watchedBtn === disabled;
-// }
-// function isLibrary() {
-//   const pageName = document.location.pathname;
-//     if (pageName.includes('library')) {
-//     }
-//   else {
-//  refs.watchedBtn.removeEventListener('click');
-//   refs.queueBtn.removeEventListener('click');}

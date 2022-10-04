@@ -30,11 +30,12 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  background: #ffffff;
+  background: transparent;
   border-radius: 5px;
   border: 0;
   color: var(--second-color);
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #ff6b08;
     color: #ffffff;
   }
@@ -50,7 +51,11 @@
 
 .tui-prev,
 .tui-next {
-  background-color: #f7f7f7;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .tui-first,
@@ -59,7 +64,7 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-  background-color: #f7f7f7;
+  background-color: transparent;
   cursor: default;
 }
 

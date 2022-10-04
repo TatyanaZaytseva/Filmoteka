@@ -2,8 +2,10 @@
     <div class="header-container container">
       <div class="header__tabs">
         <div class="header__title-panel">
-            <a href="/" class="header__logo">
-                <img src="./images/film-logo.svg" alt="Logotype Filmoteka" class="icon" width="30" height="30">
+            <a href="./index.html" class="header__logo">
+              <svg class="icon">
+                <use href="./images/sprite.svg#film"></use>
+              </svg>
                 <span class="logo-title">Filmoteka</span>
             </a>
         </div>
@@ -17,7 +19,7 @@
         <div class="header__library">
           <ul class="header__library-buttons">
             <li class="header__library-buttons-item">
-              <button type="button" class="library-buttons-button watched">watched</button>
+              <button type="button" class="library-buttons-button watched button__active">watched</button>
             </li>
             <li class="header__library-buttons-item">
               <button type="button" class="library-buttons-button queue">queue</button>

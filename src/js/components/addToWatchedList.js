@@ -1,4 +1,6 @@
 import { STORAGE_KEY_WATCHED } from '../globals';
+import { onClickBtnWatched } from './libraryBtn';
+import { refs } from './refs';
 
 let btn;
 
@@ -28,7 +30,6 @@ function checkMovieIsInList(movieId) {
     return false;
   }
   const movieIsInList = savedMovies.some(({ id }) => id === movieId);
-  console.log(movieIsInList);
   return movieIsInList;
 }
 
@@ -43,17 +44,22 @@ function setInLocalStorage(movie) {
     parsedMovies.push(movie);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(parsedMovies));
   }
+  if (refs.watchedBtn) {
+    onClickBtnWatched();
+  }
 }
 
 function removeInLocalStorage(movie) {
   const savedMovies = localStorage.getItem(STORAGE_KEY_WATCHED);
   const parsedMovies = JSON.parse(savedMovies);
-  console.log(parsedMovies);
   const MOVIE_ID = movie.id;
   const index = parsedMovies.findIndex(movie => movie.id === MOVIE_ID);
   if (index !== -1) {
     const newMovies = parsedMovies.splice(index, 1);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(parsedMovies));
+  }
+  if (refs.watchedBtn) {
+    onClickBtnWatched();
   }
   return;
 }
