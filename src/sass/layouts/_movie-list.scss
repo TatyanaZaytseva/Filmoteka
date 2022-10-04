@@ -1,4 +1,6 @@
 .movie-list {
+  padding-top: 20px;
+
   @include tablet {
     display: flex;
     flex-wrap: wrap;

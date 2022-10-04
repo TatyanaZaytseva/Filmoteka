@@ -108,7 +108,8 @@ body.dark-theme {
   color: $mainTextColor;
 }
 
-body.dark-theme .movie-card__title {
+body.dark-theme .movie-card__title,
+body.dark-theme .library-card__title {
   color: $mainTextColor;
 }
 
