@@ -116,10 +116,10 @@ export function onClickBtnQueue() {
   }
 }
 
-function hideNoMoviesBlock() {
+export function hideNoMoviesBlock() {
   refs.emptyPage.classList.add('visually-hidden');
 }
 
-function showNoMoviesBlock() {
+export function showNoMoviesBlock() {
   refs.emptyPage.classList.remove('visually-hidden');
 }
