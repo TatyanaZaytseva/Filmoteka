@@ -2,6 +2,8 @@ import { fetchFilm } from '../fetchFilm';
 import { renderMovies } from './movie-list';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { pagination } from './pagination';
+import { showNoMoviesBlock } from './libraryBtn';
+import { hideNoMoviesBlock } from './libraryBtn';
 
 const searchFormInput = document.querySelector('.header__form-input');
 const searchBtn = document.querySelector('.header__search-btn');
@@ -27,8 +29,10 @@ export async function fetchSearchResults(inputValue, page) {
 
     if (results.length === 0) {
       errorMessage.style.display = 'block';
+      showNoMoviesBlock();
     } else {
       errorMessage.style.display = 'none';
+      hideNoMoviesBlock();
       renderMovies(results);
 
       if (isNewSearch) {

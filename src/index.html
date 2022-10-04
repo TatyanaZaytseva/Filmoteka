@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka - The Movie Database (TMDB)</title>
-    <meta name="description" content="The Movie Database (TMDB) is a popular Filmoteka, user editable database for movies and TV shows.">
+    <meta
+      name="description"
+      content="The Movie Database (TMDB) is a popular Filmoteka, user editable database for movies and TV shows."
+    />
     <link rel="stylesheet" href="./sass/main.scss" />
     <link rel="shortcut icon" href="./images/logo.png" />
   </head>
   <body>
     <include src="./partials/header.html"></include>
     <main>
+      <img
+        class="empty-page visually-hidden"
+        src="./images/empty.png"
+        alt="empty"
+      />
+
       <include src="./partials/scroll-up-btn.html"></include>
       <include src="./partials/movie-list.html"></include>
       <include src="./partials/pagination.html"></include>
