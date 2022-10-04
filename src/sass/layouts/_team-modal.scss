@@ -11,17 +11,17 @@
   opacity: 1;
   overflow-y: scroll;
 
-  @media screen and (min-width: 768px) {
-    padding-top: 231px;
-    padding-right: 75px;
-    padding-left: 75px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   padding-top: 231px;
+  //   padding-right: 75px;
+  //   padding-left: 75px;
+  // }
 
-  @media screen and (min-width: 1280px) {
-    padding-top: 100px;
-    padding-right: 70px;
-    padding-left: 70px;
-  }
+  // @media screen and (min-width: 1280px) {
+  //   padding-top: 100px;
+  //   padding-right: 70px;
+  //   padding-left: 70px;
+  // }
 }
 
 // .team-backdrop {
@@ -37,10 +37,33 @@
 // }
 
 // .team-backdrop.is-hidden {
-//   display: none;
+//   // display: none;
+//   transform: scale(1.5);
+//   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 // }
 
 .team-modal {
+
+  // z-index: 3;
+  // width: 70%;
+  // height: auto;
+  // background-color: #fff;
+  // margin-left: auto;
+  // margin-right: auto;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -10%);
+
+  // @media screen and (min-width: 768px) {
+  //   transform: translate(-50%, -24%);
+  //   width: 700px;
+  //   height: 1200px;
+  //   transform: scale(1);
+  //   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   z-index: 3;
   width: 70%;
   height: auto;
@@ -57,19 +80,39 @@
 
   // @media screen and (min-width: 320px) {
   //   width: 480px;
+
   // }
 
-  @media screen and (min-width: 768px) {
-    transform: translate(-50%, -24%);
-    width: 700px;
-    height: 1250px;
+  // @media screen and (min-width: 1280px) {
+  //   transform: translate(-50%, -50%);
+  //   width: 1100px;
+  //   height: 700px;
+  //   padding-bottom: 10px;
+  //   transform: translateX(-50%);
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 5px;
+  @media (min-width: 768px) {
+    padding-right: 50px;
+    padding-left: 50px;
+    transform: scale(1);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  @media screen and (min-width: 1280px) {
-    transform: translate(-50%, -50%);
-    width: 1100px;
+  @media (min-width: 1280px) {
+    width: 1200px;
     height: 700px;
+    transform: translate(10%);
     padding-bottom: 10px;
+  }
+
+  .team-backdrop.visually-hidden & {
+    transform: scale(1.5);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .team-modal-close-btn {
@@ -164,31 +207,6 @@
     height: 180;
     width: 100%;
     padding: 5px;
-  }
-}
-
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s;
-}
-
-@-webkit-keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0);
-  }
-
-  to {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes animatezoom {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
   }
 }
 
