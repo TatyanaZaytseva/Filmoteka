@@ -8,6 +8,7 @@
   top: 50%;
   overflow: auto;
   transform: translate(-50%, -50%);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @include tablet {
     display: flex;
@@ -152,6 +153,10 @@
     &:focus use {
       fill: $mainTextColor;
     }
+  }
+  .modal-overlay.visually-hidden & {
+    transform: scale(1.5);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
